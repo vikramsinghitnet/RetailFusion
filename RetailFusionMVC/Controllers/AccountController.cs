@@ -14,6 +14,7 @@ namespace RetailFusionMVC.Controllers
         {
             return View();
         }
+        //Test
         //spUpdatedRents 35000,2,2020
         // Store 2 - FF Men
         // Store 4 - FF Women
