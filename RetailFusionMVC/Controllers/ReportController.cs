@@ -27,6 +27,7 @@ namespace RetailFusionMVC.Controllers
             //return View();
         }
 
+
         public ActionResult Reports()
         {
             return View();
@@ -50,6 +51,12 @@ namespace RetailFusionMVC.Controllers
         {
             GetStoreId();
             return objDal.GetBillPendingAmount(StoreId);
+        }
+
+        public string GetSessionUser()
+        {
+            GetStoreId();
+            return Session["user"].ToString();
         }
 
         public JsonResult GetPedingBills()

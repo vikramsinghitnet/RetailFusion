@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#"  Inherits="System.Web.Mvc.ViewUserControl" %>
+﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <link href="../../Content/themes/base/jquery-ui.css" rel="Stylesheet" />
@@ -20,18 +20,37 @@
             return vars;
         }
 
+        function deleteRecords(rowData, type) {
+            var url = "/Home/DeleteTodayTransaction";
+            $.post(url, { Id: rowData, Type: "Expense" }, function (data) {
+                alert("Record deleted");
+            });
+
+            jQuery("#gridExpanse").jqGrid().trigger('reloadGrid');
+        }
+
         $(document).ready(function () {
             $("#gridExpanse").jqGrid({
                 url: "/Home/GetExpanseDetail",
                 datatype: 'json',
                 mtype: 'GET',
-                colNames: ['Expense Type', 'Expense Amount','Remarks', 'Expense Date'],
+                colNames: ['Id', 'Expense Type', 'Expense Amount', 'Remarks', 'Expense Date', 'Delete Entry'],
                 colModel: [
-                        { key: false, name: 'ExpenseType', sortable: false },
-                        { key: false, name: 'ExpenseAmount', sortable: false },
-                        { key: false, name: 'Remarks', sortable: false },
-                        { key: false, name: 'ExpenseDate', sortable: false }
-                    ],
+                    { key: true, name: 'Id', sortable: false, hidden: true },
+                    { key: false, name: 'ExpenseType', sortable: false },
+                    { key: false, name: 'ExpenseAmount', sortable: false },
+                    { key: false, name: 'Remarks', sortable: false },
+                    { key: false, name: 'ExpenseDate', sortable: false },
+                    {
+                        key: false, name: 'actions', sortable: false, formatter: function (rowId, cellval, colpos, rwdat, _act) {
+                            //alert(colpos.Id);
+                            var rowInterviewId = colpos.Id.toString();
+                            if (sessionStorage.getItem("UserSession") == 'admin') {
+                                return "&nbsp;&nbsp;&nbsp;&nbsp;<input type='button' id='" + rowInterviewId + "' value='delete' class='btn' onClick = 'deleteRecords(" + rowInterviewId + ");' /> ";
+                            }
+                        }
+                    }
+                ],
                 height: '400px',
                 width: '200px',
                 overflow: scroll,

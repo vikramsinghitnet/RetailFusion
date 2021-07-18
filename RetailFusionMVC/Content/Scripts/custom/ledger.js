@@ -22,9 +22,18 @@ $(document).ready(function () {
     $(function () {
         $("#tDate").datepicker().datepicker('setDate', '+0');;
     });
+    //$.ajax({
+    //    url: "/Report/GetSessionUser",
+    //    type: "Get",
+    //    success:
+    //        function (data) {
+    //            sessionStorage.setItem("UserSession", data);
+    //                        }
+    //});
 
-
-
+    //sessionStorage.setItem("MyId", 123);
+    //var value = sessionStorage.getItem("MyId");
+    //alert(value);
     $("#ddlPartyName").change(function () {
         if ($('option:selected', $(this)).text() == "-Select-") {
             $("#gridLedger").jqGrid("GridUnload");
@@ -50,7 +59,28 @@ $(document).ready(function () {
                     {
                         key: false, name: 'actions', sortable: false, formatter: function (rowId, cellval, colpos, rwdat, _act) {
                             var rowInterviewId = colpos.LedgerId.toString();
-                            return "&nbsp;&nbsp;&nbsp;&nbsp;<input type='button' id='" + rowInterviewId + "' value='delete' class='btn' onClick = 'deleteRecords(" + rowInterviewId + ");' /> ";
+                            //alert(colpos.EntryDate);
+                            var today = new Date();
+                            var dd = String(today.getDate());//.padStart(2, '0');
+                            var mm = String(today.getMonth() + 1);//.padStart(2, '0'); //January is 0!
+                            var yyyy = today.getFullYear();
+
+                            today = mm + '/' + dd + '/' + yyyy + ' 12:00:00 AM';
+                            //alert(today);
+                            if (colpos.EntryDate) {
+                                //alert('@Session["store"]');
+                                if (sessionStorage.getItem("UserSession") == 'admin') {
+                                    return "&nbsp;&nbsp;&nbsp;&nbsp;<input type='button' id='" + rowInterviewId + "' value='delete' class='btn' onClick = 'deleteRecords(" + rowInterviewId + ");' /> ";
+                                }
+                                else {
+                                    if (today == colpos.EntryDate) {
+                                        return "&nbsp;&nbsp;&nbsp;&nbsp;<input type='button' id='" + rowInterviewId + "' value='delete' class='btn' onClick = 'deleteRecords(" + rowInterviewId + ");' /> ";
+                                    }
+                                }
+                            }
+                            else {
+                                return "&nbsp;";
+                            }
                         }
                     }
                 ],
