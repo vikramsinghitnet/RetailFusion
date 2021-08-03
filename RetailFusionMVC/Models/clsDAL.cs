@@ -1074,7 +1074,7 @@ namespace RetailFusionMVC.Models
                 {
                     if (!string.IsNullOrEmpty(Month))
                     {
-                        listAdvance.Add(new clsAdvance() { AdvanceAmount = Convert.ToDecimal(dr["PaidAmount"]), EmpName = dr["Emp_Name"].ToString(), PaymentType = dr["Advance_Type"].ToString(), AdvanceDate = dr["Advance_Date"].ToString(), Remarks = dr["Remarks"].ToString() });
+                        listAdvance.Add(new clsAdvance() { Id= dr["Advance_ID"].ToString(), AdvanceAmount = Convert.ToDecimal(dr["PaidAmount"]), EmpName = dr["Emp_Name"].ToString(), PaymentType = dr["Advance_Type"].ToString(), AdvanceDate = dr["Advance_Date"].ToString(), Remarks = dr["Remarks"].ToString() });
                     }
                     else
                     {
