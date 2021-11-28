@@ -6,6 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <script language="javascript" type="text/javascript">
         $(document).ready(function () {
+
             $('#btnLogon').click(function () {
                 var url = "/Account/Logon";
                 var userName = $('#tUserName').val();
@@ -20,7 +21,8 @@
                     }
                     else {
                         $.post(url, { UserName: userName, Password: password, Store: store }, function (data) {
-                            if (data = 'true') {
+                            //alert(data);
+                            if (data == 'true') {
                                 $.ajax({
                                     url: "/Report/GetSessionUser",
                                     type: "Get",
@@ -28,11 +30,11 @@
                                         function (data) {
                                             sessionStorage.setItem("UserSession", data);
                                         }
-                                });
+                                });                                
                                 window.location.href = "/Home/EOD";
                             }
                             else {
-                                alert("Please enter user name / password !!");
+                                alert("Incorrect UserName/Password !!");
                                 return false;
                             }
                         });
@@ -69,16 +71,17 @@
                     </div>
                     <div class="editor-field">
                         <select id="ddlStore" style="width: 100%;">
-                            <option value="-Select Store-"></option>
+                            <option value="">--Select Store--</option>
                             <option value="2">Fashion Fusion</option>
                             <option value="4">Fashion Fusion Women</option>
                             <option value="1">FF Singrauli</option>
-                            <option value="3">Sarovar</option>
+                            <%-- <option value="3">Sarovar</option>--%>
+                            <option value="6">FF Shahdol</option>
                             <option value="5">Test Store</option>
                         </select>
                     </div>
                     <p>
-                        <input type="submit" id="btnLogon" value="Log On" />
+                        <input type="button" id="btnLogon" value="Log On" />
                     </p>
                 </fieldset>
             </td>

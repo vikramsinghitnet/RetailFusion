@@ -15,7 +15,7 @@ namespace RetailFusionMVC.Models
         SqlDataAdapter adptr;
         int affectedRows = 0;
 
-        public int SaveLedger(string partyId, string amount, string invoiceNo, string remarks, string DrOrCr, string Date, string Brand)
+        public int SaveLedger(string partyId, string amount, string invoiceNo, string remarks, string DrOrCr, string Date, string Brand,string Branch)
         {
             try
             {
@@ -24,7 +24,7 @@ namespace RetailFusionMVC.Models
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "insert into T_Ledger values (" + partyId + "," + amount + ",'" + DrOrCr + "','" + Convert.ToDateTime(Date) + "','" + invoiceNo +
-                    "','" + remarks + "',GETDATE(),'" + Brand + "')";
+                    "','" + remarks + "',GETDATE(),'" + Brand + "','" + Branch+ "')";
                 affectedRows = cmd.ExecuteNonQuery();
                 con.Close();
                 return affectedRows;
@@ -98,7 +98,8 @@ namespace RetailFusionMVC.Models
                         EntryDate = dr["CreatedDate"].ToString(),
                         BrandDesc = dr["BrandDesc"].ToString(),
                         ClosingBalance = dr["ClosingBalance"].ToString(),
-                        LedgerId = dr["Ledger_Id"].ToString()
+                        LedgerId = dr["Ledger_Id"].ToString(),
+                        Branch = dr["Branch"].ToString()
                     });
                 }
             }

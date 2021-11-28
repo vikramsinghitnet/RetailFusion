@@ -9,6 +9,7 @@
     <p id="rData">
         <span id="msg" style="color: Green;" />
     </p>
+    <div id="pager"></div>
     <table>
         <tr>
             <td>Select Party
@@ -24,6 +25,17 @@
                     <option value="">-Select-</option>
                     <option value="Purchase">Purchase</option>
                     <option value="Payment">Payment</option>
+                </select>
+            </td>
+             <td>Branch &nbsp;
+            </td>
+            <td>
+                <select id="ddlBranch">
+                    <option value="">-Select-</option>
+                    <option value="Waidhan">Waidhan</option>
+                    <option value="Shahdol">Shahdol</option>
+                    <option value="Women">Women</option>
+                    <option value="Singrauli">Singrauli</option>
                 </select>
             </td>
         </tr>

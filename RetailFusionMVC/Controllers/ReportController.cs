@@ -27,7 +27,26 @@ namespace RetailFusionMVC.Controllers
             //return View();
         }
 
-
+        public PartialViewResult CreatePartialView()
+        {
+            string ActionType = Request.QueryString["ViewType"];
+            if (ActionType == "Advance")
+            {
+                return PartialView("AdvanceDetail");
+            }
+            else if (ActionType == "Deposit")
+            {
+                return PartialView("Deposit");
+            }
+            else if (ActionType == "PartyPayment")
+            {
+                return PartialView("PartyPayment");
+            }
+            else
+            {
+                return PartialView("ExpenseDetail");
+            }
+        }
         public ActionResult Reports()
         {
             return View();
@@ -119,7 +138,7 @@ namespace RetailFusionMVC.Controllers
         }
 
         [HttpPost]
-        public string SaveLedger(string PartyId, string InvoiceNo, string InvoiceAmount, string Remarks, string DrOrCr, string Date, string Brand)
+        public string SaveLedger(string PartyId, string InvoiceNo, string InvoiceAmount, string Remarks, string DrOrCr, string Date, string Brand,string Branch)
         {
             GetStoreId();
             try
@@ -127,7 +146,7 @@ namespace RetailFusionMVC.Controllers
                 if (!string.IsNullOrEmpty(InvoiceAmount)  && !string.IsNullOrEmpty(InvoiceNo)
                  && !string.IsNullOrEmpty(PartyId) && !string.IsNullOrEmpty(Date))
                 {
-                    if (0 < objLedgerDal.SaveLedger(PartyId, InvoiceAmount, InvoiceNo, Remarks, DrOrCr, Date, Brand))
+                    if (0 < objLedgerDal.SaveLedger(PartyId, InvoiceAmount, InvoiceNo, Remarks, DrOrCr, Date, Brand,Branch))
                         return "Thank you " + User.Identity.Name + ". Legder saved.";
                     else
                         return "Error Occured";
@@ -210,7 +229,7 @@ namespace RetailFusionMVC.Controllers
                     clsLedger objledger = ledger.Last();
 
                     LedgerSummary summary = new LedgerSummary();
-                    summary.ClosingBalance = objledger.ClosingBalance;
+                    summary.ClosingBalance = Convert.ToDecimal( objledger.ClosingBalance);
                     summary.PartyName = party.PartyName;
                     ledgerSummary.Add(summary);
                 }
@@ -221,7 +240,7 @@ namespace RetailFusionMVC.Controllers
             {
                 page = 1,
                 records = ledgerSummary.Count(),
-                rows = ledgerSummary,
+                rows = ledgerSummary.OrderByDescending(x=>x.ClosingBalance),
                 total = 1
             };
             return Json(Result, JsonRequestBehavior.AllowGet);

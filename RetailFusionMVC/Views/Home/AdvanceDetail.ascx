@@ -50,7 +50,8 @@
                 }
             }
             ],
-            height: '100px',
+            height: '200px',
+            width: '200px',
             overflow: scroll,
             jsonReader:
             {

@@ -78,14 +78,14 @@
     </Reference>
     <Reference Include="System.Net.Http">
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.Net.Http.2.0.30506.0\lib\net40\System.Net.Http.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.Net.Http.2.0.30506.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -196,16 +196,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="DAL\clsAccountDal.cs" />
     <Compile Include="Models\clsBO.cs" />
     <Compile Include="Models\clsCustomerCredit.cs" />
-    <Compile Include="Models\clsDAL.cs" />
+    <Compile Include="DAL\clsDal.cs" />
     <Compile Include="Models\clsDeposit.cs" />
     <Compile Include="Models\clsEODMonths.cs" />
     <Compile Include="Models\clsLedger.cs" />
-    <Compile Include="Models\clsLedgerDAL.cs" />
+    <Compile Include="DAL\clsLedgerDal.cs" />
     <Compile Include="Models\clsPartyPayment.cs" />
     <Compile Include="Models\clsStoreSetup.cs" />
-    <Compile Include="Models\DALReport.cs" />
+    <Compile Include="DAL\clsReportDal.cs" />
+    <Compile Include="Models\clsUser.cs" />
     <Compile Include="Views\Shared\Partial.Master.cs">
       <DependentUpon>Partial.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -375,6 +377,7 @@
     <Content Include="Views\Home\Reports.aspx" />
     <Content Include="Views\Home\StoreSetup.aspx" />
     <Content Include="Views\Public\About.aspx" />
+    <Content Include="Views\Report\Deposit.ascx" />
     <Content Include="Views\Report\Index.aspx" />
     <Content Include="Views\Report\Ledger.aspx" />
     <Content Include="Views\Report\PartPayment.ascx" />

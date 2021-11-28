@@ -151,7 +151,7 @@ namespace RetailFusionMVC.Models
 
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "Insert into dbo.T_Purchase(Party_Name,Invoice_No,Invoice_Amount,Invoice_Date,Vat,Recieved_Date,Stock_Qty,Cash_Discount,Frieght_Chgs,Total_InvoiceAmount,StoreId,Remarks) Values('" + PartyName + "','" + InvoiceNo + "'," + InvoiceAmount + ",'" + Convert.ToDateTime(InvoiceDate) + "'," + Vat + ",'" + Convert.ToDateTime(RecievedDate) + "'," + StockQty + "," + CashDiscount + "," + FrieghtChgs + "," + TotalInvoiceAmount + "," + StoreId + ",'" + Remarks + "')";
+                cmd.CommandText = "Insert into dbo.T_Purchase(Party_Name,Invoice_No,Invoice_Amount,Invoice_Date,Vat,Recieved_Date,Stock_Qty,Cash_Discount,Frieght_Chgs,Total_InvoiceAmount,StoreId,Remarks,Store) Values('" + PartyName + "','" + InvoiceNo + "'," + InvoiceAmount + ",'" + Convert.ToDateTime(InvoiceDate) + "'," + Vat + ",'" + Convert.ToDateTime(RecievedDate) + "'," + StockQty + "," + CashDiscount + "," + FrieghtChgs + "," + TotalInvoiceAmount + "," + StoreId + ",'" + Remarks + "')";
                 affectedRows = cmd.ExecuteNonQuery();
                 con.Close();
                 return affectedRows;

@@ -41,7 +41,7 @@
                                                 <input type="text" id="tExpenses" style="width: 100%" />
                                                 <br />
                                                 <br />
-                                                <% if (Session["store"] != null && Session["store"].ToString() == "3")
+                                                <% if (Session["store"] != null && Session["store"].ToString() == "0")
                                                     {%>
                                                 <select id="ddlExpanse" style="width: 100%">
                                                     <option value=""></option>
@@ -75,7 +75,7 @@
                                                     <option value="5">Electricity Bill</option>
                                                     <option value="6">Buying</option>
                                                     <option value="7">Stock Transport</option>
-                                                    <option value="8">Rent</option>
+                                                    <option value="8">Shop Rent</option>
                                                     <option value="11">Customer Credit</option>
                                                     <%--<option value="12">Petrol</option>--%>
                                                     <option value="13">Shop Maintenence</option>

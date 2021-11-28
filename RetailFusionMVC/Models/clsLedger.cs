@@ -76,5 +76,12 @@ namespace RetailFusionMVC.Models
             get { return ledgerId; }
             set { ledgerId = value; }
         }
+
+        string branch;
+        public string Branch
+        {
+            get { return branch; }
+            set { branch = value; }
+        }
     }
 }

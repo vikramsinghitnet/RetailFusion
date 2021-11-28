@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RetailFusionMVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +9,8 @@ using System.Web.Security;
 namespace RetailFusionMVC.Controllers
 {
     public class AccountController : Controller
-    {        
-
+    {
+        clsAccountDal objDal = new clsAccountDal();
         public ActionResult Index()
         {
             return View();
@@ -23,37 +24,8 @@ namespace RetailFusionMVC.Controllers
 
         public string Logon(string UserName, string Password, string Store)
         {
-            if (UserName.ToLower() == "abhishek" && Password.ToLower() == "abhishek1" && (Store == "2" || Store == "4"))
-            {
-                FormsAuthentication.SetAuthCookie(UserName.ToUpper(), false);
-                //return RedirectToAction("EOD", "Home");
-            }
-            else if (UserName.ToLower() == "gaurav" && Password.ToLower() == "gaurav1" && (Store == "2" || Store == "4"))
-            {
-                FormsAuthentication.SetAuthCookie(UserName.ToUpper(), false);
-                //return RedirectToAction("EOD", "Home");
-            }
-            else if (UserName.ToLower() == "anup" && Password.ToLower() == "anup1" && Store == "2")
-            {
-                FormsAuthentication.SetAuthCookie(UserName.ToUpper(), false);
-                //return RedirectToAction("EOD", "Home");
-            }
-            else if (UserName.ToLower() == "ff2" && Password.ToLower() == "ffsgrl" && Store == "1")
-            {
-                FormsAuthentication.SetAuthCookie(UserName.ToUpper(), false);
-                //return RedirectToAction("EOD", "Home");
-            }
-            else if (UserName.ToLower() == "sarovar" && Password.ToLower() == "sarovar1" && Store == "3")
-            {
-                FormsAuthentication.SetAuthCookie(UserName.ToUpper(), false);
-                //return RedirectToAction("EOD", "Home");
-            }
-            else if (UserName.ToLower() == "test" && Password.ToLower() == "test1" && Store == "5")
-            {
-                FormsAuthentication.SetAuthCookie(UserName.ToUpper(), false);
-                //return RedirectToAction("EOD", "Home");
-            }
-            else if (UserName.ToLower() == "admin" && Password.ToLower() == "admin")
+            clsUser user = objDal.GetUserLogin(Convert.ToInt32(Store), UserName, Password);
+            if (user.Id !=0)
             {
                 FormsAuthentication.SetAuthCookie(UserName.ToUpper(), false);
             }

@@ -502,9 +502,9 @@ namespace RetailFusionMVC.Models
             set { partyName = value; }
         }
 
-        string closingBalance;
+        decimal closingBalance;
 
-        public string ClosingBalance
+        public decimal ClosingBalance
         {
             get { return closingBalance; }
             set { closingBalance = value; }

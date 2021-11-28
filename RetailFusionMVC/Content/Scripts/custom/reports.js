@@ -11,6 +11,15 @@ function ReloadGrid(monthYear) {
     $("#gridEOD").trigger("reloadGrid");
    
 }
+
+function LinkDeposit(id) {
+    var row = id.split("=");
+    var row_ID = row[1];
+    var EODDate = $("#gridEOD").getCell(row_ID, 'EODDate');
+    var url = "CreatePartialView?EODDate=" + EODDate + "&ViewType=Deposit";; // sitename will be like google.com or yahoo.com
+    window.open(url, "_blank", "location=1,status=0,scrollbars=1, resizable=0,  width=600, height=200");
+}
+
 function ReloadExpenseGrid(monthYear) {
 
     $("#gridExpanceDetail").jqGrid('setGridParam', {
