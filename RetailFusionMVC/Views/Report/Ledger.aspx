@@ -32,9 +32,9 @@
             <td>
                 <select id="ddlBranch">
                     <option value="">-Select-</option>
-                    <option value="Waidhan">Waidhan</option>
+                    <option value="Waidhan">Waidhan Men</option>
                     <option value="Shahdol">Shahdol</option>
-                    <option value="Women">Women</option>
+                    <option value="Women">Waidhan Women</option>
                     <option value="Singrauli">Singrauli</option>
                 </select>
             </td>

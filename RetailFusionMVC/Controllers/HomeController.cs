@@ -18,7 +18,7 @@ namespace RetailFusionMVC.Controllers
 
         clsDAL objDal = new clsDAL();
         int StoreId = 0;
-
+        string user = "";
         public ActionResult Index()
         {
             ViewData["Message"] = "Welcome to Fashion Fusion World";
@@ -152,8 +152,7 @@ namespace RetailFusionMVC.Controllers
 
                 if (!String.IsNullOrEmpty(TotalSale) && !String.IsNullOrEmpty(TotalDiscount) && !String.IsNullOrEmpty(TotalSale) && !String.IsNullOrEmpty(TotalCounterCash))
                 {
-
-                    if (0 <= objDal.SaveEODDetail(float.Parse(TotalSale), float.Parse(TotalCardPayment), float.Parse(TotalDiscount), float.Parse(TotalCounterCash), float.Parse(vshortageAmount.ToString()), StoreId, EodDate))
+                    if (0 <= objDal.SaveEODDetail(float.Parse(TotalSale), float.Parse(TotalCardPayment), float.Parse(TotalDiscount), float.Parse(TotalCounterCash), float.Parse(vshortageAmount.ToString()), StoreId, EodDate, User.Identity.Name))
                     {
                         //string error = "";
                         return "1";// +objDal.CreateDataBackup();
@@ -331,6 +330,7 @@ namespace RetailFusionMVC.Controllers
             if (Session["store"] != null)
             {
                 StoreId = Convert.ToInt32(Session["store"]);
+                user = Session["store"].ToString();
             }
             else
             {

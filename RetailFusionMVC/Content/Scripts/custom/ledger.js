@@ -1,20 +1,25 @@
 ﻿
-function deleteRecords(rowData) {
+function deleteRecords(rowData,inv) {
     var url = "/Report/DeleteTodayLedger";
-    $.post(url, { LedgerId: rowData }, function (data) {
-        $("#msg").html(data);
-        $.ajax({
-            url: "/Report/GetLedger",
-            dataType: "json",
-            data: { PartyId: $("#ddlPartyName").val() },
-            type: "GET",
-            contentType: 'application/json',
-            success: function (data) {
-                jQuery("#gridLedger").jqGrid('setGridParam', { data: data }).trigger('reloadGrid');
-            }
-        });
 
-    });
+    var result = confirm("Want to delete? Invoice no: " + inv.toString());
+    if (result) {
+        $.post(url, { LedgerId: rowData }, function (data) {
+            $("#msg").html(data);
+            $.ajax({
+                url: "/Report/GetLedger",
+                dataType: "json",
+                data: { PartyId: $("#ddlPartyName").val() },
+                type: "GET",
+                contentType: 'application/json',
+                success: function (data) {
+                    jQuery("#gridLedger").jqGrid('setGridParam', { data: data }).trigger('reloadGrid');
+                }
+            });
+
+        });
+    }
+   
 }
 
 function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
@@ -135,6 +140,7 @@ $(document).ready(function () {
                     {
                         key: false, name: 'actions', sortable: false, formatter: function (rowId, cellval, colpos, rwdat, _act) {
                             var rowInterviewId = colpos.LedgerId.toString();
+                            var invNo = colpos.InvoiceNo.toString();
                             //alert(colpos.EntryDate);
                             var today = new Date();
                             var dd = String(today.getDate());//.padStart(2, '0');
@@ -146,11 +152,13 @@ $(document).ready(function () {
                             if (colpos.EntryDate) {
                                 //alert('@Session["store"]');
                                 if (sessionStorage.getItem("UserSession") == 'admin') {
-                                    return "&nbsp;&nbsp;&nbsp;&nbsp;<input type='button' id='" + rowInterviewId + "' value='delete' class='btn' onClick = 'deleteRecords(" + rowInterviewId + ");' /> ";
+                                    return "&nbsp;&nbsp;&nbsp;&nbsp;<input type='button' id='" + rowInterviewId + "' value='delete' class='btn' onClick = 'deleteRecords(" + rowInterviewId.toString() + ",\'" + invNo + "\');' /> ";
+                                    
                                 }
                                 else {
                                     if (today == colpos.EntryDate) {
-                                        return "&nbsp;&nbsp;&nbsp;&nbsp;<input type='button' id='" + rowInterviewId + "' value='delete' class='btn' onClick = 'deleteRecords(" + rowInterviewId + ");' /> ";
+                                        return "&nbsp;&nbsp;&nbsp;&nbsp;<input type='button' id='" + rowInterviewId + "' value='delete' class='btn' onClick = 'deleteRecords(" + rowInterviewId.toString() + ",\'" + invNo + "\');' /> ";
+                                        
                                     }
                                 }
                             }

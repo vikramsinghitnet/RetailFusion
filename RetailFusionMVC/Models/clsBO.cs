@@ -327,6 +327,8 @@ namespace RetailFusionMVC.Models
     public class clsEODDetails
     {
 
+        public string SubmittedBy { get; set; }
+
         decimal shortageAmount;
 
         public decimal ShortageAmount

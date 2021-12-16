@@ -17,7 +17,7 @@ namespace RetailFusionMVC.Models
         SqlDataAdapter adptr;
         int affectedRows = 0;
 
-        public int SaveEODDetail(float totalSale, float cardPayment, float totalDiscount, float counterCash, float shortageAmout, int StoreId,string EodDate)
+        public int SaveEODDetail(float totalSale, float cardPayment, float totalDiscount, float counterCash, float shortageAmout, int StoreId,string EodDate,string user)
         {
             try
             {
@@ -27,9 +27,9 @@ namespace RetailFusionMVC.Models
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.Text;
                 if(string.IsNullOrEmpty(EodDate))
-                    cmd.CommandText = "Insert into dbo.T_EOD(Total_Sale,Card_Payment,Total_Discount,Counter_Cash,Shortage,StoreId) Values(" + totalSale.ToString() + "," + cardPayment.ToString() + "," + totalDiscount.ToString() + "," + counterCash.ToString() + "," + shortageAmout + "," + StoreId + ")";
+                    cmd.CommandText = "Insert into dbo.T_EOD(Total_Sale,Card_Payment,Total_Discount,Counter_Cash,Shortage,StoreId,Eod_SubmittedBy) Values(" + totalSale.ToString() + "," + cardPayment.ToString() + "," + totalDiscount.ToString() + "," + counterCash.ToString() + "," + shortageAmout + "," + StoreId + ",'"+user+"')";
                 else
-                    cmd.CommandText = "Insert into dbo.T_EOD(Total_Sale,Card_Payment,Total_Discount,Counter_Cash,Shortage,StoreId,EOD_Date) Values(" + totalSale.ToString() + "," + cardPayment.ToString() + "," + totalDiscount.ToString() + "," + counterCash.ToString() + "," + shortageAmout + "," + StoreId + ",'" + EodDate + "')";
+                    cmd.CommandText = "Insert into dbo.T_EOD(Total_Sale,Card_Payment,Total_Discount,Counter_Cash,Shortage,StoreId,EOD_Date,Eod_SubmittedBy) Values(" + totalSale.ToString() + "," + cardPayment.ToString() + "," + totalDiscount.ToString() + "," + counterCash.ToString() + "," + shortageAmout + "," + StoreId + ",'" + EodDate + "','" + user + "')";
                 affectedRows = cmd.ExecuteNonQuery();
                 con.Close();
                 return affectedRows;
@@ -402,7 +402,8 @@ namespace RetailFusionMVC.Models
                         TotalExpense = Convert.ToDecimal(dr["Total_Expense"]),
                         TotapPartypayment = Convert.ToDecimal(dr["Total_PartyPayment"]),
                         TotalDeposit = Convert.ToDecimal(dr["Total_Deposit"]),
-                        ShortageAmount = Convert.ToDecimal(dr["Shortage"])
+                        ShortageAmount = Convert.ToDecimal(dr["Shortage"]),
+                        SubmittedBy = dr["SubmittedBy"].ToString()
                     });
                 }
             }

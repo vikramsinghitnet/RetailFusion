@@ -352,9 +352,9 @@ function loadEODGrid() {
         url: "/Home/GetEODDetail",
         datatype: 'json',
         mtype: 'GET',
-        colNames: ['EOD Submit Date', 'Total Sale', 'Card Payment', 'Total Discount', 'Total Party Payment', 'Total Deposit', 'Closing Balance (Counter Cash)', 'Total Expense', 'Total Employee Payment', 'Shortage Amount'],
+        colNames: ['Total Sale', 'Card Payment', 'Total Discount', 'Total Party Payment', 'Total Deposit', 'Closing Balance (Counter Cash)', 'Total Expense', 'Total Employee Payment', 'Shortage Amount','Submitted By', 'EOD Submit Date'],
         colModel: [
-            { key: false, name: 'EODDate', sortable: false },
+            
             { key: false, name: 'TotalSale', sortable: false },
             { key: false, name: 'CardPayment', sortable: false },
             { key: false, name: 'TotalDiscount', sortable: false },
@@ -363,7 +363,9 @@ function loadEODGrid() {
             { key: false, name: 'CounterCash', sortable: false },
             { key: false, name: 'TotalExpense', sortable: false, formatter: 'showlink', formatoptions: { baseLinkUrl: 'javascript:', showAction: "LinkExpense('", addParam: "');" } },
             { key: false, name: 'TotalAdvance', sortable: false, formatter: 'showlink', formatoptions: { baseLinkUrl: 'javascript:', showAction: "LinkAdvance('", addParam: "');" } },
-            { key: false, name: 'ShortageAmount', sortable: false }
+            { key: false, name: 'ShortageAmount', sortable: false },
+            { key: false, name: 'SubmittedBy', sortable: false },
+            { key: false, name: 'EODDate', sortable: false }
         ],
         height: '300px',
         rowNum: 0,
