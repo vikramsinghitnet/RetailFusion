@@ -15,7 +15,7 @@ namespace RetailFusionMVC.Models
         SqlDataAdapter adptr;
         int affectedRows = 0;
 
-        public int SaveLedger(string partyId, string amount, string invoiceNo, string remarks, string DrOrCr, string Date, string Brand,string Branch)
+        public int SaveLedger(string partyId, string amount, string invoiceNo, string remarks, string DrOrCr, string Date, string Brand,string Branch,string user)
         {
             try
             {
@@ -24,7 +24,7 @@ namespace RetailFusionMVC.Models
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "insert into T_Ledger values (" + partyId + "," + amount + ",'" + DrOrCr + "','" + Convert.ToDateTime(Date) + "','" + invoiceNo +
-                    "','" + remarks + "',GETDATE(),'" + Brand + "','" + Branch+ "')";
+                    "','" + remarks + "',GETDATE(),'" + Brand + "','" + Branch + "','" + user + "')";
                 affectedRows = cmd.ExecuteNonQuery();
                 con.Close();
                 return affectedRows;
@@ -69,7 +69,7 @@ namespace RetailFusionMVC.Models
             return affectedRecords;
         }
 
-        public List<clsLedger> GetLedgerbyParty(string partyId)
+        public List<clsLedger> GetLedgerbyParty(string partyId,string frmDate=null,string toDate=null)
         {
             var listLedger = new List<clsLedger>();
 
@@ -83,6 +83,12 @@ namespace RetailFusionMVC.Models
                 cmd.Parameters.Clear();
                 cmd.Parameters.Add(new SqlParameter("PartyId", partyId));
 
+                if (!string.IsNullOrEmpty(frmDate))
+                {
+                    cmd.Parameters.Add(new SqlParameter("fromDate", frmDate));
+                    cmd.Parameters.Add(new SqlParameter("toDate", toDate));
+                }
+                
                 SqlDataReader dr;
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -99,7 +105,8 @@ namespace RetailFusionMVC.Models
                         BrandDesc = dr["BrandDesc"].ToString(),
                         ClosingBalance = dr["ClosingBalance"].ToString(),
                         LedgerId = dr["Ledger_Id"].ToString(),
-                        Branch = dr["Branch"].ToString()
+                        Branch = dr["Branch"].ToString(),
+                        CreatedBy = dr["CreatedBy"].ToString()
                     });
                 }
             }

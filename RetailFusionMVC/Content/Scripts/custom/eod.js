@@ -31,13 +31,18 @@ function deleteRecords(rowData, type) {
     jQuery("#gridEOD").trigger('reloadGrid');
 }
 
+function showCalculator() {
+    var url = "CreatePartialView?ViewType=EodCalculator";
+    window.open(url, "_blank", "location=1,status=0,scrollbars=1, resizable=0,  width=800, height=300");
+}
+
 function LinkAdvance(id) {
 
     var row = id.split("=");
     var row_ID = row[1];
 
     var EODDate = $("#gridEOD").getCell(row_ID, 'EODDate');
-    var url = "CreatePartialView?EODDate=" + EODDate + "&ViewType=Advance"; // sitename will be like google.com or yahoo.com
+    var url = "CreatePartialView?EODDate=" + EODDate + "&ViewType=Advance"; 
     window.open(url, "_blank", "location=1,status=0,scrollbars=1, resizable=0,  width=800, height=300");
 }
 
@@ -45,7 +50,7 @@ function LinkExpense(id) {
     var row = id.split("=");
     var row_ID = row[1];
     var EODDate = $("#gridEOD").getCell(row_ID, 'EODDate');
-    var url = "CreatePartialView?EODDate=" + EODDate + "&ViewType=Expense";; // sitename will be like google.com or yahoo.com
+    var url = "CreatePartialView?EODDate=" + EODDate + "&ViewType=Expense";; 
     window.open(url, "_blank", "location=1,status=0,scrollbars=1, resizable=0,  width=800, height=400");
 }
 
@@ -53,7 +58,7 @@ function LinkDeposit(id) {
     var row = id.split("=");
     var row_ID = row[1];
     var EODDate = $("#gridEOD").getCell(row_ID, 'EODDate');
-    var url = "CreatePartialView?EODDate=" + EODDate + "&ViewType=Deposit";; // sitename will be like google.com or yahoo.com
+    var url = "CreatePartialView?EODDate=" + EODDate + "&ViewType=Deposit";; 
     window.open(url, "_blank", "location=1,status=0,scrollbars=1, resizable=0,  width=600, height=200");
 }
 
@@ -61,7 +66,7 @@ function LinkPartyPayment(id) {
     var row = id.split("=");
     var row_ID = row[1];
     var EODDate = $("#gridEOD").getCell(row_ID, 'EODDate');
-    var url = "CreatePartialView?EODDate=" + EODDate + "&ViewType=PartyPayment";; // sitename will be like google.com or yahoo.com
+    var url = "CreatePartialView?EODDate=" + EODDate + "&ViewType=PartyPayment";; 
     window.open(url, "_blank", "location=1,status=0,scrollbars=1, resizable=0,  width=600, height=200");
 }
 
@@ -354,17 +359,16 @@ function loadEODGrid() {
         mtype: 'GET',
         colNames: ['Total Sale', 'Card Payment', 'Total Discount', 'Total Party Payment', 'Total Deposit', 'Closing Balance (Counter Cash)', 'Total Expense', 'Total Employee Payment', 'Shortage Amount','Submitted By', 'EOD Submit Date'],
         colModel: [
-            
             { key: false, name: 'TotalSale', sortable: false },
-            { key: false, name: 'CardPayment', sortable: false },
-            { key: false, name: 'TotalDiscount', sortable: false },
+            { key: false, name: 'CardPayment', sortable: false, width: "100" },
+            { key: false, name: 'TotalDiscount', sortable: false, width: "100" },
             { key: false, name: 'TotapPartypayment', sortable: false, formatter: 'showlink', formatoptions: { baseLinkUrl: 'javascript:', showAction: "LinkPartyPayment('", addParam: "');" } },
-            { key: false, name: 'TotalDeposit', sortable: false, formatter: 'showlink', formatoptions: { baseLinkUrl: 'javascript:', showAction: "LinkDeposit('", addParam: "');" } },
+            { key: false, name: 'TotalDeposit', sortable: false, width: "100", formatter: 'showlink', formatoptions: { baseLinkUrl: 'javascript:', showAction: "LinkDeposit('", addParam: "');" } },
             { key: false, name: 'CounterCash', sortable: false },
-            { key: false, name: 'TotalExpense', sortable: false, formatter: 'showlink', formatoptions: { baseLinkUrl: 'javascript:', showAction: "LinkExpense('", addParam: "');" } },
+            { key: false, name: 'TotalExpense', sortable: false, width: "100", formatter: 'showlink', formatoptions: { baseLinkUrl: 'javascript:', showAction: "LinkExpense('", addParam: "');" } },
             { key: false, name: 'TotalAdvance', sortable: false, formatter: 'showlink', formatoptions: { baseLinkUrl: 'javascript:', showAction: "LinkAdvance('", addParam: "');" } },
-            { key: false, name: 'ShortageAmount', sortable: false },
-            { key: false, name: 'SubmittedBy', sortable: false },
+            { key: false, name: 'ShortageAmount', sortable: false, width: "80" },
+            { key: false, name: 'SubmittedBy', sortable: false, width: "100" },
             { key: false, name: 'EODDate', sortable: false }
         ],
         height: '300px',

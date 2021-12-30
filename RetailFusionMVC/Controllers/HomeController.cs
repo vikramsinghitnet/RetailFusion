@@ -319,6 +319,10 @@ namespace RetailFusionMVC.Controllers
             {
                 return PartialView("PartyPayment");
             }
+            else if (ActionType == "EodCalculator")
+            {
+                return PartialView("EodCalculator");
+            }
             else
             {
                 return PartialView("ExpenseDetail");
@@ -330,7 +334,7 @@ namespace RetailFusionMVC.Controllers
             if (Session["store"] != null)
             {
                 StoreId = Convert.ToInt32(Session["store"]);
-                user = Session["store"].ToString();
+                user = Session["user"].ToString();
             }
             else
             {

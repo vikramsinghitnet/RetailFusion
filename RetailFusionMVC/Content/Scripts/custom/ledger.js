@@ -1,5 +1,5 @@
 ﻿
-function deleteRecords(rowData,inv) {
+function deleteRecords(rowData, inv) {
     var url = "/Report/DeleteTodayLedger";
 
     var result = confirm("Want to delete? Invoice no: " + inv.toString());
@@ -7,7 +7,7 @@ function deleteRecords(rowData,inv) {
         $.post(url, { LedgerId: rowData }, function (data) {
             $("#msg").html(data);
             $.ajax({
-                url: "/Report/GetLedger",
+                url: "/Ledger/GetLedger",
                 dataType: "json",
                 data: { PartyId: $("#ddlPartyName").val() },
                 type: "GET",
@@ -19,14 +19,14 @@ function deleteRecords(rowData,inv) {
 
         });
     }
-   
+
 }
 
 function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
     //If JSONData is not an object then JSON.parse will parse the JSON string in an Object
     var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
 
-  
+
     var CSV = '';
     //Set Report title in first row or line
 
@@ -99,33 +99,30 @@ function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
 $(document).ready(function () {
 
     $(function () {
-        $("#tDate").datepicker().datepicker('setDate', '+0');;
-    });
-    //$.ajax({
-    //    url: "/Report/GetSessionUser",
-    //    type: "Get",
-    //    success:
-    //        function (data) {
-    //            sessionStorage.setItem("UserSession", data);
-    //                        }
-    //});
+        $("#tDate").datepicker().datepicker('setDate', '+0');
 
-    //sessionStorage.setItem("MyId", 123);
-    //var value = sessionStorage.getItem("MyId");
-    //alert(value);
+        var today = new Date();
+        var dd = String(today.getDate());//.padStart(2, '0');
+        var mm = String(today.getMonth() + 1);//.padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        $("#fromDate").datepicker().datepicker('setDate', new Date(yyyy, 03, 01));
+
+        $("#toDate").datepicker().datepicker('setDate', '+0');
+    });
+    
     $("#ddlPartyName").change(function () {
         if ($('option:selected', $(this)).text() == "-Select-") {
             $("#gridLedger").jqGrid("GridUnload");
         }
         else {
-            
+
             $("#gridLedger").jqGrid("GridUnload");
             $("#gridLedger").jqGrid({
-                url: "/Report/GetLedger",
+                url: "/Ledger/GetLedger",
                 datatype: 'json',
-                postData: { PartyId: $('option:selected', $(this)).val() },
+                postData: { PartyId: $('option:selected', $(this)).val(), frmDate: $("#fromDate").val(), toDate: $("#toDate").val()},
                 mtype: 'GET',
-                colNames: ['LedgerId', 'Date', 'Invoice No', 'Debit', 'Credit', 'Brand', 'Remarks', 'Closing Balance', 'Entry Date','Branch', 'Delete Entry'],
+                colNames: ['LedgerId', 'Date', 'Invoice No', 'Debit', 'Credit', 'Brand', 'Remarks', 'Closing Balance', 'Branch', 'Submitted By', 'Entry Date', 'Delete Entry'],
                 colModel: [
                     { key: true, name: 'LedgerId', sortable: false, hidden: true },
                     { key: false, name: 'TransactionDate', sortable: false },
@@ -135,8 +132,9 @@ $(document).ready(function () {
                     { key: false, name: 'BrandDesc', sortable: false },
                     { key: false, name: 'Remarks', sortable: false },
                     { key: false, name: 'ClosingBalance', sortable: false },
-                    { key: false, name: 'EntryDate', sortable: false },
                     { key: false, name: 'Branch', sortable: false },
+                    { key: false, name: 'CreatedBy', sortable: false },
+                    { key: false, name: 'EntryDate', sortable: false },
                     {
                         key: false, name: 'actions', sortable: false, formatter: function (rowId, cellval, colpos, rwdat, _act) {
                             var rowInterviewId = colpos.LedgerId.toString();
@@ -152,13 +150,12 @@ $(document).ready(function () {
                             if (colpos.EntryDate) {
                                 //alert('@Session["store"]');
                                 if (sessionStorage.getItem("UserSession") == 'admin') {
-                                    return "&nbsp;&nbsp;&nbsp;&nbsp;<input type='button' id='" + rowInterviewId + "' value='delete' class='btn' onClick = 'deleteRecords(" + rowInterviewId.toString() + ",\'" + invNo + "\');' /> ";
-                                    
+                                    //alert("&nbsp;&nbsp;&nbsp;&nbsp;<input type='button' id='" + rowInterviewId + "' value='delete' class='btn' onClick = 'deleteRecords(" + rowInterviewId.toString() + ",\"'" + invNo + "\"');' /> ");
+                                    return "&nbsp;&nbsp;&nbsp;&nbsp;<input type='button' id='" + rowInterviewId + "' value='delete' class='btn' onClick = 'deleteRecords(" + rowInterviewId.toString() + ",\"" + invNo + "\");' /> ";
                                 }
                                 else {
                                     if (today == colpos.EntryDate) {
-                                        return "&nbsp;&nbsp;&nbsp;&nbsp;<input type='button' id='" + rowInterviewId + "' value='delete' class='btn' onClick = 'deleteRecords(" + rowInterviewId.toString() + ",\'" + invNo + "\');' /> ";
-                                        
+                                        return "&nbsp;&nbsp;&nbsp;&nbsp;<input type='button' id='" + rowInterviewId + "' value='delete' class='btn' onClick = 'deleteRecords(" + rowInterviewId.toString() + ",\"" + invNo + "\");' /> ";
                                     }
                                 }
                             }
@@ -262,7 +259,7 @@ $(document).ready(function () {
             $("#msg").html(data);
 
             $.ajax({
-                url: "/Report/GetLedger",
+                url: "/Ledger/GetLedger",
                 dataType: "json",
                 data: { PartyId: $("#ddlPartyName").val() },
                 type: "GET",
@@ -286,8 +283,6 @@ $(document).ready(function () {
         var date = $('#tDate').val();
         var brand = $('#tBrand').val();
         var drOrCr = "";
-
-
 
         if (partyName.trim() == '') {
             alert('Please select party ');
@@ -325,14 +320,13 @@ $(document).ready(function () {
             return;
         }
 
-
         $.post(url, {
             PartyId: partyName, InvoiceNo: invoiceNo, InvoiceAmount: amount, DrOrCr: drOrCr, Date: date,
-            Remarks: remarks, Brand: brand,Branch:branch
+            Remarks: remarks, Brand: brand, Branch: branch
         }, function (data) {
             $("#msg").html(data);
             $.ajax({
-                url: "/Report/GetLedger",
+                url: "/Ledger/GetLedger",
                 dataType: "json",
                 data: { PartyId: $("#ddlPartyName").val() },
                 type: "GET",

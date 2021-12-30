@@ -20,7 +20,7 @@ namespace RetailFusionMVC.Controllers
         clsDAL objDal = new clsDAL();
         clsLedgerDAL objLedgerDal = new clsLedgerDAL();
         int StoreId = 0;
-
+        string user = "";
         public ActionResult Index()
         {
             return Content("Hi there!");
@@ -57,6 +57,7 @@ namespace RetailFusionMVC.Controllers
             if (Session["store"] != null)
             {
                 StoreId = Convert.ToInt32(Session["store"]);
+                user = Session["user"].ToString();
             }
             else
             {
@@ -146,7 +147,7 @@ namespace RetailFusionMVC.Controllers
                 if (!string.IsNullOrEmpty(InvoiceAmount)  && !string.IsNullOrEmpty(InvoiceNo)
                  && !string.IsNullOrEmpty(PartyId) && !string.IsNullOrEmpty(Date))
                 {
-                    if (0 < objLedgerDal.SaveLedger(PartyId, InvoiceAmount, InvoiceNo, Remarks, DrOrCr, Date, Brand,Branch))
+                    if (0 < objLedgerDal.SaveLedger(PartyId, InvoiceAmount, InvoiceNo, Remarks, DrOrCr, Date, Brand,Branch,user))
                         return "Thank you " + User.Identity.Name + ". Legder saved.";
                     else
                         return "Error Occured";
@@ -198,19 +199,7 @@ namespace RetailFusionMVC.Controllers
             return Json(Result, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet]
-        public JsonResult GetLedger(string PartyId)
-        {
-            var legder = objLedgerDal.GetLedgerbyParty(PartyId);
-            var Result = new
-            {
-                page = 1,
-                records = legder.Count(),
-                rows = legder,
-                total = 1
-            };
-            return Json(Result, JsonRequestBehavior.AllowGet);
-        }
+       
 
         [HttpGet]
         public JsonResult GetLedgerSummery()

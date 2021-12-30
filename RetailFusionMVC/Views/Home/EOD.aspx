@@ -111,7 +111,7 @@
                 <div>
                     <table width="100%" border="0">
                         <tr>
-                            <td >
+                            <td>
                                 <fieldset style="width: 90%; height: 215px;">
                                     <legend>Employee Payments</legend>
                                     <table width="95%" style="height: 90%; border: none;">
@@ -157,8 +157,8 @@
                                     </table>
                                 </fieldset>
                             </td>
-                            <td align="center" style="width:50%">
-                                <table id="gridAdvance" class="scroll" cellpadding="0" cellspacing="0" >
+                            <td align="center" style="width: 50%">
+                                <table id="gridAdvance" class="scroll" cellpadding="0" cellspacing="0">
                                 </table>
                             </td>
                         </tr>
@@ -296,6 +296,8 @@
                     <br />
                     <div align="center">
                         <input type="button" value="Save EOD Detail" id="tSubmit" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="button" value="EOD Calculator" id="eodCalculator" onclick="showCalculator()"/>
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="button" value="Delete Today EOD" id="tDeleteTodayEOD" />
                     </div>

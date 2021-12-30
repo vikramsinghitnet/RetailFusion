@@ -7,6 +7,8 @@ namespace RetailFusionMVC.Models
 {
     public class clsLedger
     {
+        public string CreatedBy { get; set; }
+
         string amount;
         public string Amount
         {
