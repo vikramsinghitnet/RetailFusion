@@ -419,7 +419,7 @@ namespace RetailFusionMVC.Models
         }
 
 
-        public List<clsExpenses> GetMonthExpenses(int StoreId, string MonthYear)
+        public List<clsExpenses> GetMonthExpenses(int StoreId, string MonthYear,string frmDate=null,string toDate=null)
         {
             var listMonthExpenses = new List<clsExpenses>();
             try
@@ -434,6 +434,11 @@ namespace RetailFusionMVC.Models
                 if (!string.IsNullOrEmpty(MonthYear))
                 {
                     cmd.Parameters.Add(new SqlParameter("MonthYear", MonthYear));
+                }
+                if (!string.IsNullOrEmpty(frmDate))
+                {
+                    cmd.Parameters.Add(new SqlParameter("frmDate", frmDate));
+                    cmd.Parameters.Add(new SqlParameter("toDate", toDate));
                 }
                 SqlDataReader dr;
                 dr = cmd.ExecuteReader();

@@ -30,6 +30,18 @@
                 </select>
             </td>
         </tr>
+        <tr id="trDuration">
+            <td>From
+            </td>
+            <td>
+                <input type="text" id="fromDate" style="width: 80%" />
+            </td>
+            <td>To
+            </td>
+            <td>
+                <input type="text" id="toDate" style="width: 80%" />
+            </td>
+        </tr>
         <tr>
             <td colspan="2" align="right">
                 <br />
@@ -67,36 +79,36 @@
             </tr>
         </table>
     </div>
-     <div style="overflow: scroll;">
-    <table id="tblPartyPendingReprot" class="PartyPendingReprot" width="100%">
-        <tr>
-            <th colspan="2">
-                <b>Party Pending Amount Summary</b>
-            </th>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <table id="gridPendingSummary" class="scroll" cellpadding="0" cellspacing="0" width="100%">
-                </table>
-            </td>
-        </tr>
-    </table>
-         </div>
-     <div style="overflow: scroll;">
-    <table id="tblExpanceSummary" class="ExpanceSummary" width="100%">
-        <tr>
-            <th colspan="2">
-                <b>Expense Detailed Summary</b>
-            </th>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <table id="gridExpanceSummary" class="scroll" cellpadding="0" cellspacing="0" width="100%">
-                </table>
-            </td>
-        </tr>
-    </table>
-         </div>
+    <div style="overflow: scroll;">
+        <table id="tblPartyPendingReprot" class="PartyPendingReprot" width="100%">
+            <tr>
+                <th colspan="2">
+                    <b>Party Pending Amount Summary</b>
+                </th>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table id="gridPendingSummary" class="scroll" cellpadding="0" cellspacing="0" width="100%">
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div style="overflow: scroll;">
+        <table id="tblExpanceSummary" class="ExpanceSummary" width="100%">
+            <tr>
+                <th colspan="2">
+                    <b>Expense Detailed Summary</b>
+                </th>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table id="gridExpanceSummary" class="scroll" cellpadding="0" cellspacing="0" width="100%">
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
     <div id="gridWrapper" style="overflow: scroll;">
         <table>
             <tr>

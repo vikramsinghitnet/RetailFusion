@@ -18,7 +18,6 @@ namespace RetailFusionMVC.Controllers
         //
         // GET: /Report/
         clsDAL objDal = new clsDAL();
-        clsLedgerDAL objLedgerDal = new clsLedgerDAL();
         int StoreId = 0;
         string user = "";
         public ActionResult Index()
@@ -100,7 +99,7 @@ namespace RetailFusionMVC.Controllers
         public string SubmitPaidAmount(int AdvanceId, decimal PartialPayment)
         {
             GetStoreId();
-            if (objDal.SubmitPaidAmount(AdvanceId, "Bill", StoreId, PartialPayment:PartialPayment) > 0)
+            if (objDal.SubmitPaidAmount(AdvanceId, "Bill", StoreId, PartialPayment: PartialPayment) > 0)
             {
                 return "Paid Amount Setteled.";
             }
@@ -138,51 +137,12 @@ namespace RetailFusionMVC.Controllers
 
         }
 
-        [HttpPost]
-        public string SaveLedger(string PartyId, string InvoiceNo, string InvoiceAmount, string Remarks, string DrOrCr, string Date, string Brand,string Branch)
-        {
-            GetStoreId();
-            try
-            {
-                if (!string.IsNullOrEmpty(InvoiceAmount)  && !string.IsNullOrEmpty(InvoiceNo)
-                 && !string.IsNullOrEmpty(PartyId) && !string.IsNullOrEmpty(Date))
-                {
-                    if (0 < objLedgerDal.SaveLedger(PartyId, InvoiceAmount, InvoiceNo, Remarks, DrOrCr, Date, Brand,Branch,user))
-                        return "Thank you " + User.Identity.Name + ". Legder saved.";
-                    else
-                        return "Error Occured";
-                }
-                else
-                {
-                    return "Please complete the form.";
-                }
-            }
-            catch (Exception ex)
-            {
-                return "Error Occurred !!  " + ex.Message;
-            }
-        }
         public PartialViewResult PartPaymentView()
         {
             return PartialView("PartPayment");
         }
 
-        [HttpPost]
-        public string DeleteTodayLedger(string PartyId, string LedgerId)
-        {
-            if (Convert.ToInt32(PartyId) > 0 && objLedgerDal.DeleteTodayLedger(Convert.ToInt32(PartyId), 0) > 0)
-            {
-                return "Today's ledger deleted successfully.";
-            }
-            else if (Convert.ToInt32(LedgerId) > 0 && objLedgerDal.DeleteTodayLedger(0, Convert.ToInt32(LedgerId)) > 0)
-            {
-                return "Ledger deleted successfully.";
-            }
-            else
-            {
-                return "No ledger deleted !";
-            }
-        }
+
 
         public JsonResult GetPartPaymentDetails(string BillId)
         {
@@ -199,41 +159,9 @@ namespace RetailFusionMVC.Controllers
             return Json(Result, JsonRequestBehavior.AllowGet);
         }
 
-       
 
-        [HttpGet]
-        public JsonResult GetLedgerSummery()
-        {
-            GetStoreId();
 
-            var parties=objDal.GetPartyList(StoreId);
-            List<LedgerSummary> ledgerSummary = new List<LedgerSummary>();
 
-            foreach (clsParty party in parties)
-            {
-                var ledger= objLedgerDal.GetLedgerbyParty(party.PartyId.ToString());
-                
-                if (ledger != null && ledger.Count() != 0)
-                {
-                    clsLedger objledger = ledger.Last();
-
-                    LedgerSummary summary = new LedgerSummary();
-                    summary.ClosingBalance = Convert.ToDecimal( objledger.ClosingBalance);
-                    summary.PartyName = party.PartyName;
-                    ledgerSummary.Add(summary);
-                }
-            }
-
-            
-            var Result = new
-            {
-                page = 1,
-                records = ledgerSummary.Count(),
-                rows = ledgerSummary.OrderByDescending(x=>x.ClosingBalance),
-                total = 1
-            };
-            return Json(Result, JsonRequestBehavior.AllowGet);
-        }
 
         [HttpGet]
         public JsonResult GetInvoices(string ReportType, string partyId)
@@ -420,12 +348,12 @@ namespace RetailFusionMVC.Controllers
             }
         }
 
-        public JsonResult GetMonthExpenses(string MonthYear)
+        public JsonResult GetMonthExpenses(string MonthYear, string FromDate, string ToDate)
         {
 
             GetStoreId();
 
-            var listExpenses = objDal.GetMonthExpenses(StoreId, MonthYear);
+            var listExpenses = objDal.GetMonthExpenses(StoreId, MonthYear, FromDate, ToDate);
 
             var Result = new
             {

@@ -1,6 +1,6 @@
 ﻿
 function deleteRecords(rowData, inv) {
-    var url = "/Report/DeleteTodayLedger";
+    var url = "/Ledger/DeleteTodayLedger";
 
     var result = confirm("Want to delete? Invoice no: " + inv.toString());
     if (result) {
@@ -104,7 +104,11 @@ $(document).ready(function () {
         var today = new Date();
         var dd = String(today.getDate());//.padStart(2, '0');
         var mm = String(today.getMonth() + 1);//.padStart(2, '0'); //January is 0!
+        alert(mm);
         var yyyy = today.getFullYear();
+        if (mm == 1 || mm == 2 || mm == 3) {
+            yyyy = yyyy - 1;
+        }
         $("#fromDate").datepicker().datepicker('setDate', new Date(yyyy, 03, 01));
 
         $("#toDate").datepicker().datepicker('setDate', '+0');
@@ -254,7 +258,7 @@ $(document).ready(function () {
             return;
         }
 
-        var url = "/Report/DeleteTodayLedger";
+        var url = "/Ledger/DeleteTodayLedger";
         $.post(url, { PartyId: partyName }, function (data) {
             $("#msg").html(data);
 
@@ -274,7 +278,7 @@ $(document).ready(function () {
 
     $('#save').click(function () {
 
-        var url = "/Report/SaveLedger";
+        var url = "/Ledger/SaveLedger";
         var partyName = $('#ddlPartyName').val();
         var branch = $('#ddlBranch').val();
         var invoiceNo = $('#tInvoiceNo').val();

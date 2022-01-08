@@ -20,12 +20,13 @@ function LinkDeposit(id) {
     window.open(url, "_blank", "location=1,status=0,scrollbars=1, resizable=0,  width=600, height=200");
 }
 
-function ReloadExpenseGrid(monthYear) {
-
+function ReloadExpenseGrid(monthYear,fromDate,toDate) {
+    //alert(fromDate);
     $("#gridExpanceDetail").jqGrid('setGridParam', {
-        postData: { MonthYear: monthYear }
+        postData: { MonthYear:"",FromDate: fromDate, ToDate: toDate }
     }).trigger('reloadGrid');
 }
+
 function LoadSaleReport(monthYear) {
 
     $("#gridEOD").jqGrid({
@@ -72,6 +73,7 @@ function LoadGrids() {
         $(".PartyPendingReprot").hide();
         $(".ExpanceSummary").hide();
         $(".MonthlyReport").show();
+        $("#trDuration").hide();
         $("#gridWrapper").hide();
         $(".MonthlySaleDetail").hide();
         $(".ddlMonthYear").hide();
@@ -82,8 +84,8 @@ function LoadGrids() {
 
         $(".MonthlyReport").hide();
         $(".ExpanceSummary").hide();
+        $("#trDuration").hide();
         $(".PartyPendingReprot").show();
-        //                $(".MonthlySaleDetail").hide();
         $("#gridWrapper").hide();
         $("#gridWrapperExpenseDetail").show();
         $(".ddlMonthYear").hide();
@@ -92,41 +94,38 @@ function LoadGrids() {
     else if (rptType == 3) {
         $(".MonthlyReport").hide();
         $(".PartyPendingReprot").hide();
+        $("#trDuration").hide();
         $(".ExpanceSummary").show();
         $("#gridWrapper").hide();
-        //                $(".MonthlySaleDetail").hide();
         $(".ddlMonthYear").hide();
         $(".LedgerSummary").hide();
         $("#gridWrapperExpenseDetail").hide();
-    }//gridExpanceDetail
+    }
     else if (rptType == 4) {
         $(".MonthlyReport").hide();
         $(".PartyPendingReprot").hide();
+        $("#trDuration").hide();
         $(".ExpanceSummary").hide();
         if ($('#ddlMonthYear option:selected').text() != "") {
             ReloadGrid($('#ddlMonthYear option:selected').text());
-            //                LoadSaleReport($('#ddlMonthYear option:selected').text());
         }
         $("#gridWrapper").show();
-        //                $(".MonthlySaleDetail").show();
         $(".ddlMonthYear").show();
         $(".LedgerSummary").hide();
         $("#gridWrapperExpenseDetail").hide();
     }
     else if (rptType == 5) {
         $(".MonthlyReport").hide();
-        $(".PartyPendingReprot").hide();
+        $(".PartyPendingReprot").hide();       
         $(".ExpanceSummary").hide();
-        if ($('#ddlMonthYear option:selected').text() != "") {
 
-            ReloadExpenseGrid($('#ddlMonthYear option:selected').text());
-            //                LoadSaleReport($('#ddlMonthYear option:selected').text());
-        }
+        ReloadExpenseGrid("", $("#fromDate").val(), $("#toDate").val());
+
         $("#gridWrapper").hide();
         $(".LedgerSummary").hide();
-        $(".ddlMonthYear").show();
+        $(".ddlMonthYear").hide();
         $("#gridWrapperExpenseDetail").show();
-        //                $(".MonthlySaleDetail").show();
+        $("#trDuration").show();
 
     } else if (rptType == 6) {
         $(".PartyPendingReprot").hide();
@@ -137,13 +136,14 @@ function LoadGrids() {
         $(".MonthlySaleDetail").hide();
         $(".ddlMonthYear").hide();
         $("#gridWrapperExpenseDetail").hide();
+        $("#trDuration").hide();
     }
     else {
 
         $(".PartyPendingReprot").hide();
         $(".MonthlyReport").hide();
+        $("#trDuration").hide();
         $(".ExpanceSummary").hide();
-        //                $(".MonthlySaleDetail").hide();
         $("#gridWrapper").hide();
         $(".LedgerSummary").hide();
         $(".ddlMonthYear").hide();
@@ -153,6 +153,8 @@ function LoadGrids() {
 
 $(document).ready(function () {
 
+    $("#fromDate").datepicker().datepicker('setDate', '+0');
+    $("#toDate").datepicker().datepicker('setDate', '+0');
     $.ajax({
         url: "/Report/GetEODMonths",
         type: "Get",
@@ -185,26 +187,26 @@ $(document).ready(function () {
     );
 
     $('#ddlReportType').change(function () {
-        //                alert($('#ddlMonthYear option:selected').val());
         if ($('#ddlReportType option:selected').text() == "Month Sale Detail Report") {
             $(".ddlMonthYear").show();
             $("#gridWrapper").show();
             $("#gridWrapper").hide();
             $(".MonthlyReport").hide();
             $(".PartyPendingReprot").hide();
+            $("#trDuration").hide();
             $(".ExpanceSummary").hide();
             $("gridWrapperExpenseDetail").hide();
         }
         else if ($('#ddlReportType option:selected').text() == "Month Expense Detail Report") {
             $("gridWrapperExpenseDetail").show();
-            $(".ddlMonthYear").show();
+            $(".ddlMonthYear").hide();
+            $("#trDuration").show();
             $("#gridWrapper").hide();
             $("#gridWrapper").hide();
             $(".MonthlyReport").hide();
             $(".PartyPendingReprot").hide();
             $(".ExpanceSummary").hide();
             $("gridWrapperExpenseDetail").hide();
-
         }
         else {
             $(".ddlMonthYear").hide();
@@ -213,6 +215,7 @@ $(document).ready(function () {
             $(".PartyPendingReprot").hide();
             $(".ExpanceSummary").hide();
             $("gridWrapperExpenseDetail").hide();
+            $("#trDuration").hide();
         }
     });
 
@@ -287,7 +290,7 @@ $(document).ready(function () {
     });
 
     $("#gridLedgerSummary").jqGrid({
-        url: "/Report/GetLedgerSummery",
+        url: "/Ledger/GetLedgerSummery",
         datatype: 'json',
         mtype: 'GET',
         colNames: ['Party', 'Closing Balance'],
