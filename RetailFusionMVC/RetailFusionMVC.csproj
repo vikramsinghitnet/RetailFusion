@@ -190,6 +190,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LedgerController.cs" />
     <Compile Include="Controllers\PublicController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Filters\SessionExpireAttribute.cs" />
@@ -370,6 +371,7 @@
     <Content Include="Views\Home\AdvanceDetail.ascx" />
     <Content Include="Views\Home\Deposit.ascx" />
     <Content Include="Views\Home\EOD.aspx" />
+    <Content Include="Views\Home\EodCalculator.ascx" />
     <Content Include="Views\Home\ExpenseDetail.ascx" />
     <Content Include="Views\Home\PartyMaster.aspx" />
     <Content Include="Views\Home\PartyPayment.ascx" />

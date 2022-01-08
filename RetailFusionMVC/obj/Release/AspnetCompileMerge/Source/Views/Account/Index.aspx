@@ -21,6 +21,14 @@
                     else {
                         $.post(url, { UserName: userName, Password: password, Store: store }, function (data) {
                             if (data = 'true') {
+                                $.ajax({
+                                    url: "/Report/GetSessionUser",
+                                    type: "Get",
+                                    success:
+                                        function (data) {
+                                            sessionStorage.setItem("UserSession", data);
+                                        }
+                                });
                                 window.location.href = "/Home/EOD";
                             }
                             else {

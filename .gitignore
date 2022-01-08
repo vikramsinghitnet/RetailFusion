@@ -4,3 +4,14 @@ _ReSharper.*
 bin
 obj
 packages
+*.pdb
+*.pdb
+.vs/RetailFusion/config/debuggerConfiguration-23022624-d59e-4994-a2a5-70b981ba07d7.json
+*.dll
+*.dll
+*.dll
+*.dll
+*.dll
+RetailFusionMVC/obj/Release/RetailFusionMVC.dll
+*.dll
+*.dll

@@ -7,193 +7,200 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>E:\Projects\Dev\Publish</_PublishTargetUrl>
+    <History>True|2021-07-30T11:39:19.4872496Z;False|2021-07-30T17:08:41.5593162+05:30;True|2021-07-30T16:43:04.2735908+05:30;True|2021-07-18T12:57:47.3394599+05:30;True|2021-07-18T11:48:13.1829795+05:30;True|2021-07-18T11:31:37.9119242+05:30;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
-      <publishTime>01/01/2020 21:48:44</publishTime>
+      <publishTime>09/27/2012 16:57:18</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>02/20/2021 17:01:27</publishTime>
+      <publishTime>07/30/2021 17:09:13</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>02/20/2021 17:01:26</publishTime>
+      <publishTime>07/30/2021 17:09:13</publishTime>
     </File>
     <File Include="bin/de/Microsoft.Data.Edm.resources.dll">
-      <publishTime>01/01/2020 21:48:39</publishTime>
+      <publishTime>12/12/2012 16:31:20</publishTime>
     </File>
     <File Include="bin/de/Microsoft.Data.OData.resources.dll">
-      <publishTime>01/01/2020 21:48:41</publishTime>
+      <publishTime>12/12/2012 16:31:28</publishTime>
     </File>
     <File Include="bin/de/System.Spatial.resources.dll">
-      <publishTime>01/01/2020 21:48:37</publishTime>
+      <publishTime>12/12/2012 16:31:14</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.AspNet.dll">
-      <publishTime>01/01/2020 21:45:42</publishTime>
+      <publishTime>11/28/2012 08:33:28</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.Core.dll">
-      <publishTime>01/01/2020 21:45:39</publishTime>
+      <publishTime>11/28/2012 08:33:28</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.OAuth.Consumer.dll">
-      <publishTime>01/01/2020 21:45:41</publishTime>
+      <publishTime>11/28/2012 08:33:34</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.OAuth.dll">
-      <publishTime>01/01/2020 21:45:40</publishTime>
+      <publishTime>11/28/2012 08:33:34</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.OpenId.dll">
-      <publishTime>01/01/2020 21:45:41</publishTime>
+      <publishTime>11/28/2012 08:33:36</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.OpenId.RelyingParty.dll">
-      <publishTime>01/01/2020 21:45:42</publishTime>
+      <publishTime>11/28/2012 08:33:38</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>01/01/2020 21:48:20</publishTime>
+      <publishTime>08/08/2012 23:30:50</publishTime>
     </File>
     <File Include="bin/es/Microsoft.Data.Edm.resources.dll">
-      <publishTime>01/01/2020 21:48:39</publishTime>
+      <publishTime>12/12/2012 16:31:20</publishTime>
     </File>
     <File Include="bin/es/Microsoft.Data.OData.resources.dll">
-      <publishTime>01/01/2020 21:48:41</publishTime>
+      <publishTime>12/12/2012 16:31:28</publishTime>
     </File>
     <File Include="bin/es/System.Spatial.resources.dll">
-      <publishTime>01/01/2020 21:48:37</publishTime>
+      <publishTime>12/12/2012 16:31:14</publishTime>
     </File>
     <File Include="bin/fr/Microsoft.Data.Edm.resources.dll">
-      <publishTime>01/01/2020 21:48:39</publishTime>
+      <publishTime>12/12/2012 16:31:20</publishTime>
     </File>
     <File Include="bin/fr/Microsoft.Data.OData.resources.dll">
-      <publishTime>01/01/2020 21:48:41</publishTime>
+      <publishTime>12/12/2012 16:31:30</publishTime>
     </File>
     <File Include="bin/fr/System.Spatial.resources.dll">
-      <publishTime>01/01/2020 21:48:37</publishTime>
+      <publishTime>12/12/2012 16:31:14</publishTime>
     </File>
     <File Include="bin/it/Microsoft.Data.Edm.resources.dll">
-      <publishTime>01/01/2020 21:48:39</publishTime>
+      <publishTime>12/12/2012 16:31:20</publishTime>
     </File>
     <File Include="bin/it/Microsoft.Data.OData.resources.dll">
-      <publishTime>01/01/2020 21:48:41</publishTime>
+      <publishTime>12/12/2012 16:31:30</publishTime>
     </File>
     <File Include="bin/it/System.Spatial.resources.dll">
-      <publishTime>01/01/2020 21:48:37</publishTime>
+      <publishTime>12/12/2012 16:31:14</publishTime>
     </File>
     <File Include="bin/ja/Microsoft.Data.Edm.resources.dll">
-      <publishTime>01/01/2020 21:48:39</publishTime>
+      <publishTime>12/12/2012 16:31:22</publishTime>
     </File>
     <File Include="bin/ja/Microsoft.Data.OData.resources.dll">
-      <publishTime>01/01/2020 21:48:42</publishTime>
+      <publishTime>12/12/2012 16:31:30</publishTime>
     </File>
     <File Include="bin/ja/System.Spatial.resources.dll">
-      <publishTime>01/01/2020 21:48:37</publishTime>
+      <publishTime>12/12/2012 16:31:14</publishTime>
     </File>
     <File Include="bin/ko/Microsoft.Data.Edm.resources.dll">
-      <publishTime>01/01/2020 21:48:39</publishTime>
+      <publishTime>12/12/2012 16:31:22</publishTime>
     </File>
     <File Include="bin/ko/Microsoft.Data.OData.resources.dll">
-      <publishTime>01/01/2020 21:48:42</publishTime>
+      <publishTime>12/12/2012 16:31:30</publishTime>
     </File>
     <File Include="bin/ko/System.Spatial.resources.dll">
-      <publishTime>01/01/2020 21:48:37</publishTime>
+      <publishTime>12/12/2012 16:31:14</publishTime>
     </File>
     <File Include="bin/Microsoft.Data.Edm.dll">
-      <publishTime>01/01/2020 21:48:39</publishTime>
+      <publishTime>12/12/2012 16:31:20</publishTime>
     </File>
     <File Include="bin/Microsoft.Data.OData.dll">
-      <publishTime>01/01/2020 21:48:41</publishTime>
+      <publishTime>12/12/2012 16:31:28</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
-      <publishTime>01/01/2020 21:45:38</publishTime>
+      <publishTime>07/25/2012 11:48:56</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Mvc.FixedDisplayModes.dll">
-      <publishTime>01/01/2020 21:48:32</publishTime>
+      <publishTime>09/14/2012 20:36:22</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.WebPages.OAuth.dll">
-      <publishTime>01/01/2020 21:48:35</publishTime>
+      <publishTime>05/07/2013 18:39:18</publishTime>
+    </File>
+    <File Include="bin/Mono.Math.dll">
+      <publishTime>11/28/2012 08:33:36</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>01/01/2020 21:48:28</publishTime>
+      <publishTime>11/20/2012 22:45:56</publishTime>
+    </File>
+    <File Include="bin/Org.Mentalis.Security.Cryptography.dll">
+      <publishTime>11/28/2012 08:33:36</publishTime>
     </File>
     <File Include="bin/RetailFusionMVC.dll">
-      <publishTime>02/20/2021 17:00:52</publishTime>
+      <publishTime>07/30/2021 17:09:05</publishTime>
     </File>
     <File Include="bin/RetailFusionMVC.pdb">
-      <publishTime>02/20/2021 17:00:52</publishTime>
+      <publishTime>07/30/2021 17:09:05</publishTime>
     </File>
     <File Include="bin/ru/Microsoft.Data.Edm.resources.dll">
-      <publishTime>01/01/2020 21:48:39</publishTime>
+      <publishTime>12/12/2012 16:31:22</publishTime>
     </File>
     <File Include="bin/ru/Microsoft.Data.OData.resources.dll">
-      <publishTime>01/01/2020 21:48:42</publishTime>
+      <publishTime>12/12/2012 16:31:30</publishTime>
     </File>
     <File Include="bin/ru/System.Spatial.resources.dll">
-      <publishTime>01/01/2020 21:48:37</publishTime>
+      <publishTime>12/12/2012 16:31:14</publishTime>
     </File>
     <File Include="bin/System.Net.Http.dll">
       <publishTime>07/09/2013 11:04:48</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
-      <publishTime>01/01/2020 21:48:33</publishTime>
+      <publishTime>05/07/2013 18:39:16</publishTime>
     </File>
     <File Include="bin/System.Net.Http.WebRequest.dll">
       <publishTime>07/09/2013 11:04:48</publishTime>
     </File>
     <File Include="bin/System.Spatial.dll">
-      <publishTime>01/01/2020 21:48:37</publishTime>
+      <publishTime>12/12/2012 16:31:12</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
-      <publishTime>01/01/2020 21:48:30</publishTime>
+      <publishTime>05/07/2013 13:09:18</publishTime>
     </File>
     <File Include="bin/System.Web.Http.dll">
-      <publishTime>01/01/2020 21:48:33</publishTime>
+      <publishTime>05/07/2013 18:39:16</publishTime>
     </File>
     <File Include="bin/System.Web.Http.OData.dll">
-      <publishTime>01/01/2020 21:48:44</publishTime>
+      <publishTime>05/07/2013 18:40:40</publishTime>
     </File>
     <File Include="bin/System.Web.Http.WebHost.dll">
-      <publishTime>01/01/2020 21:48:34</publishTime>
+      <publishTime>05/07/2013 18:39:18</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
-      <publishTime>01/01/2020 21:48:31</publishTime>
+      <publishTime>05/07/2013 13:09:14</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
-      <publishTime>01/01/2020 21:48:34</publishTime>
+      <publishTime>08/08/2012 17:58:28</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
-      <publishTime>01/01/2020 21:48:30</publishTime>
+      <publishTime>05/20/2013 08:04:52</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Deployment.dll">
-      <publishTime>01/01/2020 21:48:31</publishTime>
+      <publishTime>05/07/2013 13:09:18</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.dll">
-      <publishTime>01/01/2020 21:48:31</publishTime>
+      <publishTime>05/07/2013 13:09:18</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Razor.dll">
-      <publishTime>01/01/2020 21:48:31</publishTime>
+      <publishTime>05/07/2013 13:09:18</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
-      <publishTime>01/01/2020 21:48:45</publishTime>
+      <publishTime>09/27/2012 16:57:18</publishTime>
     </File>
     <File Include="bin/WebMatrix.Data.dll">
       <publishTime>07/09/2013 11:05:10</publishTime>
     </File>
     <File Include="bin/WebMatrix.WebData.dll">
-      <publishTime>01/01/2020 21:48:36</publishTime>
+      <publishTime>05/07/2013 18:39:18</publishTime>
     </File>
     <File Include="bin/zh-Hans/Microsoft.Data.Edm.resources.dll">
-      <publishTime>01/01/2020 21:48:39</publishTime>
+      <publishTime>12/12/2012 16:31:20</publishTime>
     </File>
     <File Include="bin/zh-Hans/Microsoft.Data.OData.resources.dll">
-      <publishTime>01/01/2020 21:48:42</publishTime>
+      <publishTime>12/12/2012 16:31:28</publishTime>
     </File>
     <File Include="bin/zh-Hans/System.Spatial.resources.dll">
-      <publishTime>01/01/2020 21:48:38</publishTime>
+      <publishTime>12/12/2012 16:31:14</publishTime>
     </File>
     <File Include="bin/zh-Hant/Microsoft.Data.Edm.resources.dll">
-      <publishTime>01/01/2020 21:48:39</publishTime>
+      <publishTime>12/12/2012 16:31:20</publishTime>
     </File>
     <File Include="bin/zh-Hant/Microsoft.Data.OData.resources.dll">
-      <publishTime>01/01/2020 21:48:42</publishTime>
+      <publishTime>12/12/2012 16:31:28</publishTime>
     </File>
     <File Include="bin/zh-Hant/System.Spatial.resources.dll">
-      <publishTime>01/01/2020 21:48:38</publishTime>
+      <publishTime>12/12/2012 16:31:14</publishTime>
     </File>
     <File Include="Content/Images/10155709_864163863653822_6860122241738333335_n.jpg">
       <publishTime>01/01/2020 22:11:00</publishTime>
@@ -235,7 +242,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/20/2021 16:47:43</publishTime>
     </File>
     <File Include="Content/Scripts/custom/ledger.js">
-      <publishTime>12/21/2020 19:46:03</publishTime>
+      <publishTime>07/18/2021 11:47:41</publishTime>
     </File>
     <File Include="Content/Scripts/custom/partyMaster.js">
       <publishTime>12/21/2020 19:43:52</publishTime>
@@ -493,7 +500,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/01/2020 21:48:46</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>02/20/2021 17:01:00</publishTime>
+      <publishTime>07/30/2021 17:09:07</publishTime>
     </File>
     <File Include="Scripts/i18n/grid.locale-ar.js">
       <publishTime>01/01/2020 22:12:25</publishTime>
@@ -667,7 +674,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/01/2020 22:12:25</publishTime>
     </File>
     <File Include="Views/Account/Index.aspx">
-      <publishTime>12/21/2020 14:16:39</publishTime>
+      <publishTime>07/18/2021 11:44:15</publishTime>
     </File>
     <File Include="Views/Account/LogonError.aspx">
       <publishTime>01/01/2020 23:48:48</publishTime>
@@ -676,16 +683,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/22/2021 10:47:52</publishTime>
     </File>
     <File Include="Views/Home/AdvanceDetail.ascx">
-      <publishTime>12/21/2020 13:34:12</publishTime>
+      <publishTime>07/18/2021 12:56:17</publishTime>
     </File>
     <File Include="Views/Home/Deposit.ascx">
-      <publishTime>01/01/2020 23:33:51</publishTime>
+      <publishTime>07/18/2021 12:48:06</publishTime>
     </File>
     <File Include="Views/Home/EOD.aspx">
       <publishTime>02/11/2021 19:46:03</publishTime>
     </File>
     <File Include="Views/Home/ExpenseDetail.ascx">
-      <publishTime>01/13/2021 12:10:33</publishTime>
+      <publishTime>07/18/2021 12:51:55</publishTime>
     </File>
     <File Include="Views/Home/PartyMaster.aspx">
       <publishTime>12/21/2020 19:44:30</publishTime>
@@ -733,7 +740,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/21/2021 18:41:40</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/10/2020 21:24:30</publishTime>
+      <publishTime>07/18/2021 11:30:04</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -90,3 +90,193 @@ E:\Projects\SysCorp_MVC\SysCorp_MVC_2013\RetailFusion\RetailFusionMVC\obj\Releas
 E:\Projects\SysCorp_MVC\SysCorp_MVC_2013\RetailFusion\RetailFusionMVC\obj\Release\RetailFusionMVC.csproj.CoreCompileInputs.cache
 E:\Projects\SysCorp_MVC\SysCorp_MVC_2013\RetailFusion\RetailFusionMVC\obj\Release\RetailFusionMVC.csproj.CopyComplete
 E:\Projects\SysCorp_MVC\SysCorp_MVC_2013\RetailFusion\RetailFusionMVC\obj\Release\RetailFusionMVC.csprojAssemblyReference.cache
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\RetailFusionMVC.dll.config
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\RetailFusionMVC.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\RetailFusionMVC.pdb
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\Antlr3.Runtime.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\DotNetOpenAuth.Core.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\EntityFramework.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\Microsoft.Data.Edm.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\Microsoft.Data.OData.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\Newtonsoft.Json.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Net.Http.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Net.Http.Formatting.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Net.Http.WebRequest.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Spatial.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Web.Helpers.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Web.Http.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Web.Http.OData.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Web.Http.WebHost.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Web.Mvc.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Web.Optimization.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Web.Razor.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Web.WebPages.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Web.WebPages.Razor.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\WebGrease.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\WebMatrix.Data.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\WebMatrix.WebData.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\Mono.Math.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\EntityFramework.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\Newtonsoft.Json.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Net.Http.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Net.Http.Formatting.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Net.Http.WebRequest.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Web.Helpers.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Web.Http.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Web.Http.WebHost.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Web.Mvc.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Web.Razor.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Web.WebPages.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Web.WebPages.Razor.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\WebMatrix.Data.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\WebMatrix.WebData.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\DotNetOpenAuth.Core.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Web.Http.OData.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\Microsoft.Data.Edm.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\Microsoft.Data.OData.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\System.Spatial.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\Mono.Math.xml
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\de\Microsoft.Data.Edm.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\es\Microsoft.Data.Edm.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\it\Microsoft.Data.Edm.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\de\Microsoft.Data.OData.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\es\Microsoft.Data.OData.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\fr\Microsoft.Data.OData.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\it\Microsoft.Data.OData.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\ja\Microsoft.Data.OData.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\ko\Microsoft.Data.OData.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\ru\Microsoft.Data.OData.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\de\System.Spatial.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\es\System.Spatial.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\fr\System.Spatial.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\it\System.Spatial.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\ja\System.Spatial.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\ko\System.Spatial.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\ru\System.Spatial.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\zh-Hans\System.Spatial.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\bin\zh-Hant\System.Spatial.resources.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\obj\Release\RetailFusionMVC.csproj.AssemblyReference.cache
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\obj\Release\RetailFusionMVC.csproj.CoreCompileInputs.cache
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\obj\Release\RetailFusionMVC.csproj.CopyComplete
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\obj\Release\RetailFusionMVC.dll
+C:\Users\Vikram Singh\Documents\GitHub\RetailFusion\RetailFusionMVC\obj\Release\RetailFusionMVC.pdb
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\RetailFusionMVC.dll.config
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\RetailFusionMVC.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\RetailFusionMVC.pdb
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\Antlr3.Runtime.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\DotNetOpenAuth.AspNet.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\DotNetOpenAuth.Core.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\DotNetOpenAuth.OAuth.Consumer.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\DotNetOpenAuth.OAuth.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\DotNetOpenAuth.OpenId.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\EntityFramework.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\Microsoft.Data.Edm.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\Microsoft.Data.OData.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\Microsoft.Web.Infrastructure.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\Microsoft.Web.WebPages.OAuth.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\Newtonsoft.Json.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Net.Http.Formatting.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Spatial.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Web.Helpers.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Web.Http.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Web.Http.OData.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Web.Http.WebHost.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Web.Mvc.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Web.Optimization.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Web.Razor.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Web.WebPages.Deployment.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Web.WebPages.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Web.WebPages.Razor.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\WebGrease.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\WebMatrix.WebData.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Net.Http.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\Org.Mentalis.Security.Cryptography.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\Mono.Math.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\EntityFramework.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\Newtonsoft.Json.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Net.Http.Formatting.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Web.Helpers.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Web.Http.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Web.Http.WebHost.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Web.Mvc.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Web.Razor.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Web.WebPages.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Web.WebPages.Deployment.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Web.WebPages.Razor.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\Microsoft.Web.WebPages.OAuth.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\WebMatrix.WebData.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\DotNetOpenAuth.AspNet.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\DotNetOpenAuth.Core.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\DotNetOpenAuth.OAuth.Consumer.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\DotNetOpenAuth.OAuth.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\DotNetOpenAuth.OpenId.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Web.Http.OData.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\Microsoft.Data.Edm.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\Microsoft.Data.OData.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Spatial.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Net.Http.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\Org.Mentalis.Security.Cryptography.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\Mono.Math.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\de\Microsoft.Data.Edm.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\es\Microsoft.Data.Edm.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\fr\Microsoft.Data.Edm.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\it\Microsoft.Data.Edm.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\ja\Microsoft.Data.Edm.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\ko\Microsoft.Data.Edm.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\ru\Microsoft.Data.Edm.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\de\Microsoft.Data.OData.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\es\Microsoft.Data.OData.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\fr\Microsoft.Data.OData.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\it\Microsoft.Data.OData.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\ja\Microsoft.Data.OData.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\ko\Microsoft.Data.OData.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\ru\Microsoft.Data.OData.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\de\System.Spatial.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\es\System.Spatial.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\fr\System.Spatial.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\it\System.Spatial.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\ja\System.Spatial.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\ko\System.Spatial.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\ru\System.Spatial.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\zh-Hans\System.Spatial.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\zh-Hant\System.Spatial.resources.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\obj\Release\RetailFusionMVC.csproj.CoreCompileInputs.cache
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\obj\Release\RetailFusionMVC.csproj.CopyComplete
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\obj\Release\RetailFusionMVC.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\obj\Release\RetailFusionMVC.pdb
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Net.Http.WebRequest.dll
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\bin\System.Net.Http.WebRequest.xml
+E:\Vikram\Projects\RetailFusion\RetailFusion\RetailFusionMVC\obj\Release\RetailFusionMVC.csproj.AssemblyReference.cache

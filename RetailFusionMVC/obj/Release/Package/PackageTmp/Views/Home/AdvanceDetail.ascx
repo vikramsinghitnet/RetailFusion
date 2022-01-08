@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#"  Inherits="System.Web.Mvc.ViewUserControl" %>
+﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl" %>
 <link href="../../Content/themes/base/jquery-ui.css" rel="Stylesheet" />
 <link href="../../Content/jquery.jqGrid/ui.jqgrid.css" rel="Stylesheet" />
 <script src="../../Scripts/jquery-1.4.1.js" type="text/javascript"></script>
@@ -18,34 +18,53 @@
         return vars;
     }
 
+    function deleteRecords(rowData, type) {
+        var url = "/Home/DeleteTodayTransaction";
+        $.post(url, { Id: rowData, Type: "Advance" }, function (data) {
+            alert("Record deleted");
+        });
+
+        jQuery("#gridAdvance").jqGrid().trigger('reloadGrid');
+    }
+
     $(document).ready(function () {
 
         $("#gridAdvance").jqGrid({
             url: "/Home/GetAdvanceDetail",
             datatype: 'json',
             mtype: 'GET',
-            colNames: ['Employee Name', 'Advance Amount', 'Payment Type','Advance Date','Remarks'],
-            colModel: [
-                        { key: false, name: 'EmpName', sortable: false },
-                        { key: false, name: 'AdvanceAmount', sortable: false },
-                         { key: false, name: 'PaymentType', sortable: false },
-                         { key: false, name: 'AdvanceDate', sortable: false },
-                         { key: false, name: 'Remarks', sortable: false }
-                    ],
-            height: '100px',
+            colNames: ['Id', 'Employee Name', 'Advance Amount', 'Payment Type', 'Advance Date', 'Remarks', 'Delete Entry'],
+            colModel: [{ key: true, name: 'Id', sortable: false, hidden: true },
+            { key: false, name: 'EmpName', sortable: false },
+            { key: false, name: 'AdvanceAmount', sortable: false },
+            { key: false, name: 'PaymentType', sortable: false },
+            { key: false, name: 'AdvanceDate', sortable: false },
+            { key: false, name: 'Remarks', sortable: false },
+            {
+                key: false, name: 'actions', sortable: false, formatter: function (rowId, cellval, colpos, rwdat, _act) {
+                    //alert(colpos.Id);
+                    var rowInterviewId = colpos.Id.toString();
+                    if (sessionStorage.getItem("UserSession") == 'admin') {
+                        return "&nbsp;&nbsp;&nbsp;&nbsp;<input type='button' id='" + rowInterviewId + "' value='delete' class='btn' onClick = 'deleteRecords(" + rowInterviewId + ");' /> ";
+                    }
+                }
+            }
+            ],
+            height: '200px',
+            width: '200px',
             overflow: scroll,
             jsonReader:
-                {
-                    root: "rows",
-                    page: "page",
-                    total: "records",
-                    repeatitems: false,
-                    id: "0"
-                },
+            {
+                root: "rows",
+                page: "page",
+                total: "records",
+                repeatitems: false,
+                id: "0"
+            },
             postData: {
-           
+
                 EmpName: getUrlVars()["EmpName"],
-                     EODDate: getUrlVars()["EODDate"]
+                EODDate: getUrlVars()["EODDate"]
             },
             viewrecords: true,
             emptyrecords: 'No records to display',

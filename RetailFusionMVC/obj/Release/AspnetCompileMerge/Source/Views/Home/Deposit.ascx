@@ -21,22 +21,42 @@
             return vars;
         }
 
+        function deleteRecords(rowData, type) {
+            var url = "/Home/DeleteTodayTransaction";
+            $.post(url, { Id: rowData, Type: "Deposit" }, function (data) {
+                alert("Record deleted");
+            });
+
+            jQuery("#gridDeposit").jqGrid().trigger('reloadGrid');
+        }
+
         $(document).ready(function () {
 
-          
+           
 
             $("#gridDeposit").jqGrid({
                 url: "/Home/GetDepositList",
                 datatype: 'json',
                 mtype: 'GET',
-                colNames: ['Deposit Amount', 'Bank','Deposit Date'],
+                colNames: ['Id','Deposit Amount', 'Bank', 'Deposit Date', 'Delete Entry'],
                 colModel: [
-                        { key: false, name: 'DepositAmount', sortable: false },
-                        { key: false, name: 'DepositBank', sortable: false },
-                        { key: false, name: 'DepositDate', sortable: false }
-                    ],
+                    { key: true, name: 'Id', sortable: false, hidden: true },
+                    { key: false, name: 'DepositAmount', sortable: false },
+                    { key: false, name: 'DepositBank', sortable: false },
+                    { key: false, name: 'DepositDate', sortable: false },
+                    {
+                        key: false, name: 'actions', sortable: false, formatter: function (rowId, cellval, colpos, rwdat, _act) {
+                            //alert(colpos.Id);
+                            var rowInterviewId = colpos.Id.toString();
+                            if (sessionStorage.getItem("UserSession") == 'admin') {
+                                return "&nbsp;&nbsp;&nbsp;&nbsp;<input type='button' id='" + rowInterviewId + "' value='delete' class='btn' onClick = 'deleteRecords(" + rowInterviewId + ");' /> ";
+                            }
+                        }
+                    }
+                ],
                 height: '100px',
                 overflow: scroll,
+                rowNum: 0,
                 jsonReader:
                 {
                     root: "rows",
