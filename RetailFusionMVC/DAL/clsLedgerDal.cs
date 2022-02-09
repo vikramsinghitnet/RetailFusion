@@ -69,6 +69,54 @@ namespace RetailFusionMVC.Models
             return affectedRecords;
         }
 
+        public List<clsLedger> GetLedgerbyPurchaseSale(string drOrCr, int StoreId, string frmDate = null, string toDate = null)
+        {
+            var listLedger = new List<clsLedger>();
+
+            try
+            {
+                con.ConnectionString = ConfigurationManager.ConnectionStrings["Con"].ConnectionString;
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "spGetPurchaseSaleLedger";
+                cmd.Parameters.Clear();
+                cmd.Parameters.Add(new SqlParameter("DrOrCr", drOrCr));
+                cmd.Parameters.Add(new SqlParameter("StoreId", StoreId));
+                if (!string.IsNullOrEmpty(frmDate))
+                {
+                    cmd.Parameters.Add(new SqlParameter("fromDate", frmDate));
+                    cmd.Parameters.Add(new SqlParameter("toDate", toDate));
+                }
+
+                SqlDataReader dr;
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    listLedger.Add(new clsLedger()
+                    {
+                        Amount = dr["Amount"].ToString(),
+                        TransactionDate = Convert.ToDateTime(dr["Transaction_Date"]).ToString("dd-MMM-yyyy"),
+                        InvoiceNo = dr["Invoice_No"].ToString(),
+                        Remarks = dr["Remarks"].ToString(),
+                        EntryDate = dr["CreatedDate"].ToString(),
+                        BrandDesc = dr["BrandDesc"].ToString(),
+                        Branch = dr["Branch"].ToString(),
+                        CreatedBy = dr["CreatedBy"].ToString(),
+                        Party = dr["Party_Name"].ToString().ToUpper()
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return listLedger;
+        }
         public List<clsLedger> GetLedgerbyParty(string partyId,string frmDate=null,string toDate=null)
         {
             var listLedger = new List<clsLedger>();

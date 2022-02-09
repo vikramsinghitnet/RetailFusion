@@ -85,5 +85,8 @@ namespace RetailFusionMVC.Models
             get { return branch; }
             set { branch = value; }
         }
+
+        public string Party { get; set; }
+
     }
 }

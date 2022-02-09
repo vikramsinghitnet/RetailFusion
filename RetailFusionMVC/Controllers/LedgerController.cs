@@ -69,6 +69,21 @@ namespace RetailFusionMVC.Controllers
         }
 
         [HttpGet]
+        public JsonResult GetPurchaseSaleLedger(string DrOrCr, string frmDate, string toDate)
+        {
+            GetStoreId();
+            var legder = objLedgerDal.GetLedgerbyPurchaseSale(DrOrCr, StoreId, frmDate, toDate);
+            var Result = new
+            {
+                page = 1,
+                records = legder.Count(),
+                rows = legder,
+                total = 1
+            };
+            return Json(Result, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
         public JsonResult GetLedgerSummery()
         {
             GetStoreId();

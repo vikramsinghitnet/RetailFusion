@@ -21,6 +21,7 @@
                     <option value="4">Month Sale Detail Report</option>
                     <option value="5">Month Expense Detail Report</option>
                     <option value="6">Ledger Summary</option>
+                    <option value="7">Sale/Purchase Report</option>
                 </select>
             </td>
         </tr>
@@ -40,6 +41,17 @@
             </td>
             <td>
                 <input type="text" id="toDate" style="width: 80%" />
+            </td>
+        </tr>
+        <tr id="trType">
+            <td>Type
+            </td>
+            <td>
+                <select id="ddlLedgerType">
+                    <option value="0">--Select--</option>
+                    <option value="Dr">Purchase</option>
+                    <option value="Cr">Payment/Credit Note</option>
+                </select>
             </td>
         </tr>
         <tr>
@@ -110,7 +122,7 @@
         </table>
     </div>
     <div id="gridWrapper" style="overflow: scroll;">
-        <table>
+        <table class="MonthlySaleDetail">
             <tr>
                 <th>
                     <b>Monthly Sale Detail</b>
@@ -118,14 +130,29 @@
             </tr>
             <tr>
                 <td>
-                    <table id="gridEOD" class="MonthlySaleDetail" cellpadding="0" cellspacing="0" width="100%">
+                    <table id="gridEOD"  cellpadding="0" cellspacing="0" width="100%">
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+     <div id="gridWrapperPurchaseSale" style="overflow: scroll;" >
+        <table class="PurchaseSale" width="100%">
+            <tr>
+                <th>
+                    <b>Purchase Sale Report</b>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <table id="gridPurchaseSale"  cellpadding="0" cellspacing="0" width="100%">
                     </table>
                 </td>
             </tr>
         </table>
     </div>
     <div id="gridWrapperExpenseDetail" style="overflow: scroll;">
-        <table width="100%">
+        <table width="100%" class="ExpenseDetail">
             <tr>
                 <th>
                     <b>Monthly Expense Detail</b>

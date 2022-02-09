@@ -17,7 +17,7 @@ namespace RetailFusionMVC.Models
         SqlDataAdapter adptr;
         int affectedRows = 0;
 
-        public int SaveEODDetail(float totalSale, float cardPayment, float totalDiscount, float counterCash, float shortageAmout, int StoreId,string EodDate,string user)
+        public int SaveEODDetail(float totalSale, float cardPayment, float totalDiscount, float counterCash, float shortageAmout, int StoreId, string EodDate, string user)
         {
             try
             {
@@ -26,8 +26,8 @@ namespace RetailFusionMVC.Models
 
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.Text;
-                if(string.IsNullOrEmpty(EodDate))
-                    cmd.CommandText = "Insert into dbo.T_EOD(Total_Sale,Card_Payment,Total_Discount,Counter_Cash,Shortage,StoreId,Eod_SubmittedBy) Values(" + totalSale.ToString() + "," + cardPayment.ToString() + "," + totalDiscount.ToString() + "," + counterCash.ToString() + "," + shortageAmout + "," + StoreId + ",'"+user+"')";
+                if (string.IsNullOrEmpty(EodDate))
+                    cmd.CommandText = "Insert into dbo.T_EOD(Total_Sale,Card_Payment,Total_Discount,Counter_Cash,Shortage,StoreId,Eod_SubmittedBy) Values(" + totalSale.ToString() + "," + cardPayment.ToString() + "," + totalDiscount.ToString() + "," + counterCash.ToString() + "," + shortageAmout + "," + StoreId + ",'" + user + "')";
                 else
                     cmd.CommandText = "Insert into dbo.T_EOD(Total_Sale,Card_Payment,Total_Discount,Counter_Cash,Shortage,StoreId,EOD_Date,Eod_SubmittedBy) Values(" + totalSale.ToString() + "," + cardPayment.ToString() + "," + totalDiscount.ToString() + "," + counterCash.ToString() + "," + shortageAmout + "," + StoreId + ",'" + EodDate + "','" + user + "')";
                 affectedRows = cmd.ExecuteNonQuery();
@@ -105,8 +105,16 @@ namespace RetailFusionMVC.Models
                 }
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "Insert into dbo.T_Expense(Expense_Type,Expense_Amount,Remarks,StoreId,Expense_Date) Values('" + ExpenseType + "'," + ExpenseAmount.ToString() + ",'" + Remarks + "'," + StoreId + ",'"+EodDate+"')";
+                cmd.CommandText = "Insert into dbo.T_Expense(Expense_Type,Expense_Amount,Remarks,StoreId,Expense_Date) Values('" + ExpenseType + "'," + ExpenseAmount.ToString() + ",'" + Remarks + "'," + StoreId + ",'" + EodDate + "')";
                 affectedRows = cmd.ExecuteNonQuery();
+                if (DateTime.Now.Day > 8)
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                   
+                    cmd.CommandText = "spUpdateAllRents";
+                    cmd.Parameters.Clear();
+                    affectedRows = cmd.ExecuteNonQuery();
+                }
                 con.Close();
                 return affectedRows;
             }
@@ -177,7 +185,7 @@ namespace RetailFusionMVC.Models
                 }
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "Insert into dbo.T_Deposit (Deposit_Amount,Deposit_Bank,StoreId,Deposit_Date) Values(" + DepositAmount.ToString() + ",'" + BankName + "'," + StoreId +",'"+EodDate+ "')";
+                cmd.CommandText = "Insert into dbo.T_Deposit (Deposit_Amount,Deposit_Bank,StoreId,Deposit_Date) Values(" + DepositAmount.ToString() + ",'" + BankName + "'," + StoreId + ",'" + EodDate + "')";
                 affectedRows = cmd.ExecuteNonQuery();
                 con.Close();
                 return affectedRows;
@@ -204,7 +212,7 @@ namespace RetailFusionMVC.Models
 
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "Insert into dbo.T_PartyPayment (PartyPayment_Amount,Party_Id,StoreId,PartyPayment_Date) Values(" + PaymentAmount.ToString() + "," + PartyId.ToString() + "," + StoreId +",'"+EodDate+ "')";
+                cmd.CommandText = "Insert into dbo.T_PartyPayment (PartyPayment_Amount,Party_Id,StoreId,PartyPayment_Date) Values(" + PaymentAmount.ToString() + "," + PartyId.ToString() + "," + StoreId + ",'" + EodDate + "')";
                 affectedRows = cmd.ExecuteNonQuery();
                 con.Close();
                 return affectedRows;
@@ -230,7 +238,7 @@ namespace RetailFusionMVC.Models
                 }
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "Insert into dbo.T_Advance(Emp_ID,Advance_Amount,Advance_Type_Id,StoreId,Remarks,Advance_Date) Values(" + EmpID.ToString() + "," + AdvanceAmount.ToString() + "," + AdvanceTypeId + "," + StoreId + ",'" + Remarks +"','"+EodDate+ "')";
+                cmd.CommandText = "Insert into dbo.T_Advance(Emp_ID,Advance_Amount,Advance_Type_Id,StoreId,Remarks,Advance_Date) Values(" + EmpID.ToString() + "," + AdvanceAmount.ToString() + "," + AdvanceTypeId + "," + StoreId + ",'" + Remarks + "','" + EodDate + "')";
                 affectedRows = cmd.ExecuteNonQuery();
                 con.Close();
                 return affectedRows;
@@ -244,7 +252,7 @@ namespace RetailFusionMVC.Models
             return 0;
         }
 
-        public int DeleteTodayEOD(int StoreId,string EodDate)
+        public int DeleteTodayEOD(int StoreId, string EodDate)
         {
             int affectedRecords = 0;
             try
@@ -302,7 +310,7 @@ namespace RetailFusionMVC.Models
         }
 
 
-        public int SubmitPaidAmount(int AdvanceId, string PaymentType, int StoreId,string creditDate=null, decimal PartialPayment = 0)
+        public int SubmitPaidAmount(int AdvanceId, string PaymentType, int StoreId, string creditDate = null, decimal PartialPayment = 0)
         {
             int affectedRecords = 0;
             try
@@ -319,7 +327,7 @@ namespace RetailFusionMVC.Models
                     DateTime.TryParse(creditDate, out cDate);
 
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "INSERT INTO T_CustomerCreditPayment (Expense_ID,StoreId,CreatedDate) values (" + AdvanceId + "," + StoreId + ",'"+cDate.ToString("yyyy-MM-dd")+"')";
+                    cmd.CommandText = "INSERT INTO T_CustomerCreditPayment (Expense_ID,StoreId,CreatedDate) values (" + AdvanceId + "," + StoreId + ",'" + cDate.ToString("yyyy-MM-dd") + "')";
                 }
                 else
                 {
@@ -419,7 +427,7 @@ namespace RetailFusionMVC.Models
         }
 
 
-        public List<clsExpenses> GetMonthExpenses(int StoreId, string MonthYear,string frmDate=null,string toDate=null)
+        public List<clsExpenses> GetMonthExpenses(int StoreId, string MonthYear, string frmDate = null, string toDate = null)
         {
             var listMonthExpenses = new List<clsExpenses>();
             try
@@ -635,7 +643,7 @@ namespace RetailFusionMVC.Models
             return listStoreSetupSummary;
         }
 
-        public List<clsEODDetails> GetDayBeforeEODDetail(int StoreId,string EODDate=null)
+        public List<clsEODDetails> GetDayBeforeEODDetail(int StoreId, string EODDate = null)
         {
             var listEOD = new List<clsEODDetails>();
             try
@@ -648,11 +656,11 @@ namespace RetailFusionMVC.Models
                 cmd.CommandText = "spGetEODDetails";
 
                 cmd.Parameters.Clear();
-                if(!string.IsNullOrEmpty(EODDate))
+                if (!string.IsNullOrEmpty(EODDate))
                     cmd.Parameters.Add(new SqlParameter("forDate", EODDate));
                 else
                     cmd.Parameters.Add(new SqlParameter("GetLastDayEOD", true));
-                
+
                 cmd.Parameters.Add(new SqlParameter("StoreId", StoreId));
                 SqlDataReader dr;
                 dr = cmd.ExecuteReader();
@@ -703,7 +711,7 @@ namespace RetailFusionMVC.Models
                 {
                     listDepositDetails.Add(new clsDeposit()
                     {
-                        Id= dr["Deposit_Id"].ToString(),
+                        Id = dr["Deposit_Id"].ToString(),
                         DepositAmount = dr["Deposit_Amount"].ToString(),
                         DepositBank = dr["Deposit_Bank"].ToString(),
                         DepositDate = dr["Deposit_Date"].ToString()
@@ -744,7 +752,7 @@ namespace RetailFusionMVC.Models
                 {
                     listPaymentDetails.Add(new clsPartyPayment()
                     {
-                        Id=dr["PartyPayment_Id"].ToString(),
+                        Id = dr["PartyPayment_Id"].ToString(),
                         PartyName = (dr["Party_Name"]).ToString(),
                         PaymentAmount = (dr["PartyPayment_Amount"]).ToString(),
                         PaymentDate = dr["PartyPayment_Date"].ToString()
@@ -889,7 +897,7 @@ namespace RetailFusionMVC.Models
                 }
                 else
                 {
-                    cmd.CommandText = "SELECT Purchase_ID FROM [T_Purchase] WHERE Payment_Date IS NULL and storeid=" + StoreId+ " order by 1 desc";
+                    cmd.CommandText = "SELECT Purchase_ID FROM [T_Purchase] WHERE Payment_Date IS NULL and storeid=" + StoreId + " order by 1 desc";
                 }
 
                 SqlDataReader dr;
@@ -992,7 +1000,7 @@ namespace RetailFusionMVC.Models
             return listExpensSummary;
         }
 
-        public List<clsExpense> GeExpanseList(int StoreId, string EODDate = null,bool excludeCredit=true)
+        public List<clsExpense> GeExpanseList(int StoreId, string EODDate = null, bool excludeCredit = true)
         {
             var listExpanse = new List<clsExpense>();
             try
@@ -1014,7 +1022,7 @@ namespace RetailFusionMVC.Models
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    listExpanse.Add(new clsExpense() {Id=dr["Expense_Id"].ToString(), ExpenseAmount = Convert.ToDecimal(dr["Expense_Amount"]), ExpenseType = dr["Expense_Type"].ToString(), ExpenseDate = dr["Expense_Date"].ToString(), Remarks = dr["Remarks"].ToString() });
+                    listExpanse.Add(new clsExpense() { Id = dr["Expense_Id"].ToString(), ExpenseAmount = Convert.ToDecimal(dr["Expense_Amount"]), ExpenseType = dr["Expense_Type"].ToString(), ExpenseDate = dr["Expense_Date"].ToString(), Remarks = dr["Remarks"].ToString() });
                 }
             }
             catch (Exception ex)
@@ -1080,7 +1088,7 @@ namespace RetailFusionMVC.Models
                 {
                     if (!string.IsNullOrEmpty(Month))
                     {
-                        listAdvance.Add(new clsAdvance() { Id= dr["Advance_ID"].ToString(), AdvanceAmount = Convert.ToDecimal(dr["PaidAmount"]), EmpName = dr["Emp_Name"].ToString(), PaymentType = dr["Advance_Type"].ToString(), AdvanceDate = dr["Advance_Date"].ToString(), Remarks = dr["Remarks"].ToString() });
+                        listAdvance.Add(new clsAdvance() { Id = dr["Advance_ID"].ToString(), AdvanceAmount = Convert.ToDecimal(dr["PaidAmount"]), EmpName = dr["Emp_Name"].ToString(), PaymentType = dr["Advance_Type"].ToString(), AdvanceDate = dr["Advance_Date"].ToString(), Remarks = dr["Remarks"].ToString() });
                     }
                     else
                     {
@@ -1349,7 +1357,7 @@ namespace RetailFusionMVC.Models
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    listAdvance.Add(new clsAdvance() {Id=dr["Advance_ID"].ToString(), AdvanceAmount = Convert.ToDecimal(dr["Advance_Amount"]), EmpName = dr["Emp_Name"].ToString(), AdvanceDate = dr["Advance_Date"].ToString(), PaymentType = dr["Advance_Type"].ToString(), Remarks = dr["Remarks"].ToString() });
+                    listAdvance.Add(new clsAdvance() { Id = dr["Advance_ID"].ToString(), AdvanceAmount = Convert.ToDecimal(dr["Advance_Amount"]), EmpName = dr["Emp_Name"].ToString(), AdvanceDate = dr["Advance_Date"].ToString(), PaymentType = dr["Advance_Type"].ToString(), Remarks = dr["Remarks"].ToString() });
 
                 }
             }

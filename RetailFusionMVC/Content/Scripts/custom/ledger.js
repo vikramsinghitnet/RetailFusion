@@ -3,6 +3,7 @@ function deleteRecords(rowData, inv) {
     var url = "/Ledger/DeleteTodayLedger";
 
     var result = confirm("Want to delete? Invoice no: " + inv.toString());
+
     if (result) {
         $.post(url, { LedgerId: rowData }, function (data) {
             $("#msg").html(data);
@@ -104,7 +105,7 @@ $(document).ready(function () {
         var today = new Date();
         var dd = String(today.getDate());//.padStart(2, '0');
         var mm = String(today.getMonth() + 1);//.padStart(2, '0'); //January is 0!
-        alert(mm);
+        //alert(mm);
         var yyyy = today.getFullYear();
         if (mm == 1 || mm == 2 || mm == 3) {
             yyyy = yyyy - 1;
@@ -124,9 +125,9 @@ $(document).ready(function () {
             $("#gridLedger").jqGrid({
                 url: "/Ledger/GetLedger",
                 datatype: 'json',
-                postData: { PartyId: $('option:selected', $(this)).val(), frmDate: $("#fromDate").val(), toDate: $("#toDate").val()},
+                postData: { PartyId: $('option:selected', $(this)).val(),frmDate: $("#fromDate").val(), toDate: $("#toDate").val()},
                 mtype: 'GET',
-                colNames: ['LedgerId', 'Date', 'Invoice No', 'Debit', 'Credit', 'Brand', 'Remarks', 'Closing Balance', 'Branch', 'Submitted By', 'Entry Date', 'Delete Entry'],
+                colNames: ['LedgerId', 'Invoice Date', 'Invoice No', 'Debit', 'Credit', 'Brand', 'Remarks', 'Closing Balance', 'Branch', 'Submitted By', 'Entry Date', 'Delete Entry'],
                 colModel: [
                     { key: true, name: 'LedgerId', sortable: false, hidden: true },
                     { key: false, name: 'TransactionDate', sortable: false },
@@ -214,8 +215,6 @@ $(document).ready(function () {
         }
     });
 
-
-
     $.ajax({
         url: "/Home/GetPartyList",
         type: "Get",
@@ -230,6 +229,7 @@ $(document).ready(function () {
                 }
             }
     });
+
     $("#tAmount").keydown(function (e) {
         // Allow: backspace, delete, tab, escape, enter and .
         if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
@@ -245,10 +245,6 @@ $(document).ready(function () {
             e.preventDefault();
         }
     });
-
-    function deleteTodaysLedger() {
-        alert();
-    }
 
     $('#tDeleteLedger').click(function () {
 

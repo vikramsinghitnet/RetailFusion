@@ -65,89 +65,193 @@ function LoadSaleReport(monthYear) {
     });
 }
 
+function ReloadLedgerGrid() {
+
+    if ($('#ddlLedgerType').val() == "0") {
+        alert('Select ledger type ');
+        return;
+    }
+
+    //$.ajax({
+    //    url: "/Ledger/GetPurchaseSaleLedger",
+    //    dataType: "json",
+    //    data: { DrOrCr: $('option:selected', $("#ddlLedgerType")).val(), frmDate: $("#fromDate").val(), toDate: $("#toDate").val() },
+    //    type: "GET",
+    //    contentType: 'application/json',
+    //    success: function (data) {
+    //        jQuery("#gridPurchaseSale").jqGrid('setGridParam', { data: data }).trigger('reloadGrid');
+    //    }
+    //});
+
+    jQuery("#gridPurchaseSale").jqGrid('setGridParam', { postData: { DrOrCr: $('option:selected', $("#ddlLedgerType")).val(), frmDate: $("#fromDate").val(), toDate: $("#toDate").val() } }).trigger('reloadGrid');
+
+    //$("#gridPurchaseSale").jqGrid({
+    //    url: "/Ledger/GetPurchaseSaleLedger",
+    //    datatype: 'json',
+    //    postData: { DrOrCr: $('option:selected', $("#ddlLedgerType")).val(), frmDate: $("#fromDate").val(), toDate: $("#toDate").val() },
+    //    mtype: 'GET',
+    //    colNames: [ 'Invoice Date', 'Invoice No', 'Brand', 'Remarks','Branch', 'Submitted By', 'Entry Date'],
+    //    colModel: [
+    //        { key: false, name: 'TransactionDate', sortable: false },
+    //        { key: false, name: 'InvoiceNo', sortable: false },
+    //        { key: false, name: 'BrandDesc', sortable: false },
+    //        { key: false, name: 'Remarks', sortable: false },
+    //        { key: false, name: 'Branch', sortable: false },
+    //        { key: false, name: 'CreatedBy', sortable: false },
+    //        { key: false, name: 'EntryDate', sortable: false }],
+    //    height: '300px',
+    //    width: '100%',
+    //    rowNum: 0,
+    //    overflow: scroll,
+    //    jsonReader:
+    //    {
+    //        root: "rows",
+    //        page: "page",
+    //        total: "records",
+    //        repeatitems: false,
+    //        id: "0"
+    //    },
+    //    viewrecords: true,
+    //    emptyrecords: 'No records to display',
+    //    autowidth: true,
+    //    pager: "#pager",
+    //    multiselect: false
+    //});
+
+}
+
 function LoadGrids() {
 
     var rptType = $('#ddlReportType option:selected').val();
-
+    //alert(rptType);
     if (rptType == 1) {
-        $(".PartyPendingReprot").hide();
-        $(".ExpanceSummary").hide();
-        $(".MonthlyReport").show();
+
+        
         $("#trDuration").hide();
         $("#gridWrapper").hide();
-        $(".MonthlySaleDetail").hide();
-        $(".ddlMonthYear").hide();
+        $("#gridWrapperPurchaseSale").hide();
+        $("#trType").hide();
         $("#gridWrapperExpenseDetail").hide();
+
+        $(".MonthlyReport").show();
+        $(".PartyPendingReprot").hide();
+        $(".ExpanceSummary").hide();
+        //$(".MonthlySaleDetail").hide();
+        $(".ddlMonthYear").hide();
         $(".LedgerSummary").hide();
+       
     }
     else if (rptType == 2) {
 
+        $("#gridWrapperExpenseDetail").show();              
+        $("#trDuration").hide();
+        $("#gridWrapperPurchaseSale").hide();
+        $("#trType").hide();
+        $("#gridWrapper").hide();
+        
+        $(".PartyPendingReprot").show();
         $(".MonthlyReport").hide();
         $(".ExpanceSummary").hide();
-        $("#trDuration").hide();
-        $(".PartyPendingReprot").show();
-        $("#gridWrapper").hide();
-        $("#gridWrapperExpenseDetail").show();
         $(".ddlMonthYear").hide();
         $(".LedgerSummary").hide();
+       
     }
     else if (rptType == 3) {
+       
+        $("#trDuration").hide();
+        $("#gridWrapper").hide();      
+        $("#gridWrapperExpenseDetail").hide();
+        $("#gridWrapperPurchaseSale").hide();
+        $("#trType").hide();
+
+        $(".ExpanceSummary").show();
         $(".MonthlyReport").hide();
         $(".PartyPendingReprot").hide();
-        $("#trDuration").hide();
-        $(".ExpanceSummary").show();
-        $("#gridWrapper").hide();
         $(".ddlMonthYear").hide();
         $(".LedgerSummary").hide();
-        $("#gridWrapperExpenseDetail").hide();
     }
     else if (rptType == 4) {
-        $(".MonthlyReport").hide();
-        $(".PartyPendingReprot").hide();
-        $("#trDuration").hide();
-        $(".ExpanceSummary").hide();
         if ($('#ddlMonthYear option:selected').text() != "") {
             ReloadGrid($('#ddlMonthYear option:selected').text());
         }
         $("#gridWrapper").show();
-        $(".ddlMonthYear").show();
-        $(".LedgerSummary").hide();
+        //$(".MonthlySaleDetail").show();
         $("#gridWrapperExpenseDetail").hide();
+        $("#gridWrapperPurchaseSale").hide();
+        $("#trType").hide();
+        $("#trDuration").hide();
+
+        $(".ddlMonthYear").show();
+        $(".ExpanceSummary").hide();           
+        $(".LedgerSummary").hide();       
+        $(".MonthlyReport").hide();
+        $(".PartyPendingReprot").hide();
+       
     }
     else if (rptType == 5) {
-        $(".MonthlyReport").hide();
-        $(".PartyPendingReprot").hide();       
-        $(".ExpanceSummary").hide();
-
         ReloadExpenseGrid("", $("#fromDate").val(), $("#toDate").val());
 
+        $("#trDuration").show();
         $("#gridWrapper").hide();
+        $("#gridWrapperPurchaseSale").hide();
+        $("#trType").hide();
+
+        $("#gridWrapperExpenseDetail").show();
         $(".LedgerSummary").hide();
         $(".ddlMonthYear").hide();
-        $("#gridWrapperExpenseDetail").show();
-        $("#trDuration").show();
+        $(".MonthlyReport").hide();
+        $(".PartyPendingReprot").hide();
+        $(".ExpanceSummary").hide();
+      
 
-    } else if (rptType == 6) {
+    }
+    else if (rptType == 6) {
+            
+        $("#gridWrapper").hide();
+        $("#gridWrapperExpenseDetail").hide();
+        $("#trDuration").hide();
+        $("#gridWrapperPurchaseSale").hide();
+        $("#trType").hide();
+
+        $(".LedgerSummary").show();
         $(".PartyPendingReprot").hide();
         $(".ExpanceSummary").hide();
         $(".MonthlyReport").hide();
-        $(".LedgerSummary").show();
-        $("#gridWrapper").hide();
-        $(".MonthlySaleDetail").hide();
+        //$(".MonthlySaleDetail").hide();
         $(".ddlMonthYear").hide();
-        $("#gridWrapperExpenseDetail").hide();
-        $("#trDuration").hide();
+       
+    }
+    else if (rptType == 7) {
+
+        ReloadLedgerGrid();
+
+        $("#trType").show();
+        $("#gridWrapperPurchaseSale").show();
+        $("#trDuration").show();
+        $("#gridWrapperExpenseDetail").hide();       
+        $("#gridWrapper").hide();
+
+        //$(".MonthlySaleDetail").hide();
+        $(".ddlMonthYear").hide();
+        $(".PartyPendingReprot").hide();
+        $(".ExpanceSummary").hide();
+        $(".MonthlyReport").hide();       
+        $(".LedgerSummary").hide();
     }
     else {
 
-        $(".PartyPendingReprot").hide();
-        $(".MonthlyReport").hide();
-        $("#trDuration").hide();
-        $(".ExpanceSummary").hide();
-        $("#gridWrapper").hide();
-        $(".LedgerSummary").hide();
-        $(".ddlMonthYear").hide();
         $("#gridWrapperExpenseDetail").hide();
+        $("#trType").hide();
+        $("#gridWrapperPurchaseSale").hide();
+        $("#trDuration").hide();
+        $("#gridWrapper").hide();
+
+        $(".PartyPendingReprot").hide();
+        $(".MonthlyReport").hide();       
+        $(".ExpanceSummary").hide();        
+        $(".LedgerSummary").hide();
+        //$(".MonthlySaleDetail").hide();
+        $(".ddlMonthYear").hide();       
     }
 };
 
@@ -155,6 +259,7 @@ $(document).ready(function () {
 
     $("#fromDate").datepicker().datepicker('setDate', '+0');
     $("#toDate").datepicker().datepicker('setDate', '+0');
+
     $.ajax({
         url: "/Report/GetEODMonths",
         type: "Get",
@@ -188,37 +293,61 @@ $(document).ready(function () {
 
     $('#ddlReportType').change(function () {
         if ($('#ddlReportType option:selected').text() == "Month Sale Detail Report") {
-            $(".ddlMonthYear").show();
+            
             $("#gridWrapper").show();
             $("#gridWrapper").hide();
-            $(".MonthlyReport").hide();
-            $(".PartyPendingReprot").hide();
-            $("#trDuration").hide();
+            $(".MonthlyReport").hide();            
+            $("#trDuration").hide();           
+            $("#gridWrapperExpenseDetail").hide();
+
+            $(".ddlMonthYear").show();
             $(".ExpanceSummary").hide();
-            $("gridWrapperExpenseDetail").hide();
+            $(".PartyPendingReprot").hide();
+            $("#trType").hide();
         }
         else if ($('#ddlReportType option:selected').text() == "Month Expense Detail Report") {
-            $("gridWrapperExpenseDetail").show();
-            $(".ddlMonthYear").hide();
+            //$("gridWrapperExpenseDetail").show();
+            
             $("#trDuration").show();
+            $("#trType").hide();
             $("#gridWrapper").hide();
-            $("#gridWrapper").hide();
+            $("#gridWrapper").hide();           
+            $("#gridWrapperExpenseDetail").hide();
+
+            $(".ddlMonthYear").hide();
             $(".MonthlyReport").hide();
             $(".PartyPendingReprot").hide();
             $(".ExpanceSummary").hide();
-            $("gridWrapperExpenseDetail").hide();
+        }
+        else if ($('#ddlReportType option:selected').text() == "Sale/Purchase Report") {
+
+            $("#trDuration").show();
+            $("#gridWrapperPurchaseSale").hide();           
+            $("#trType").show();
+            $("#gridWrapper").hide();
+            $("#gridWrapper").hide();
+            $("#gridWrapperExpenseDetail").hide();
+
+            $(".ddlMonthYear").hide();
+            $(".MonthlyReport").hide();
+            $(".PartyPendingReprot").hide();
+            $(".ExpanceSummary").hide();
+            
         }
         else {
+           
+            $("#gridWrapper").hide();           
+            $("#gridWrapperExpenseDetail").hide();
+            $("#trDuration").hide();
+            $("#trType").hide();
+            $("#gridWrapperPurchaseSale").hide();
+            
             $(".ddlMonthYear").hide();
-            $("#gridWrapper").hide();
             $(".MonthlyReport").hide();
             $(".PartyPendingReprot").hide();
             $(".ExpanceSummary").hide();
-            $("gridWrapperExpenseDetail").hide();
-            $("#trDuration").hide();
         }
     });
-
 
     $("#gridExpanceSummary").jqGrid({
         url: "/Report/GetExpenseSummary",
@@ -253,7 +382,6 @@ $(document).ready(function () {
         autowidth: true,
         multiselect: false
     });
-
 
     $("#gridEODAll").jqGrid({
         url: "/Report/GetMonthSummaryDL",
@@ -354,6 +482,7 @@ $(document).ready(function () {
             { key: false, name: 'ExpenseAmount', sortable: false }
         ],
         height: '300px',
+        width: '100%',
         rowNum: 0,
         overflow: scroll,
         jsonReader:
@@ -369,6 +498,40 @@ $(document).ready(function () {
         autowidth: true,
         multiselect: false
     });
+
+    $("#gridPurchaseSale").jqGrid({
+        url: "/Ledger/GetPurchaseSaleLedger",
+        datatype: 'json',
+        mtype: 'GET',
+        colNames: ['Invoice Date', 'Invoice No','Amount', 'Party', 'Brand', 'Remarks', 'Branch', 'Submitted By', 'Entry Date'],
+        colModel: [
+            { key: false, name: 'TransactionDate', sortable: false },
+            { key: false, name: 'InvoiceNo', sortable: false },
+            { key: false, name: 'Amount', sortable: false },
+            { key: false, name: 'Party', sortable: false },
+            { key: false, name: 'BrandDesc', sortable: false },
+            { key: false, name: 'Remarks', sortable: false },
+            { key: false, name: 'Branch', sortable: false },
+            { key: false, name: 'CreatedBy', sortable: false },
+            { key: false, name: 'EntryDate', sortable: false }],
+        height: '300px',
+        width: '100%',
+        rowNum: 0,
+        overflow: scroll,
+        jsonReader:
+        {
+            root: "rows",
+            page: "page",
+            total: "records",
+            repeatitems: false,
+            id: "0"
+        },
+        viewrecords: true,
+        emptyrecords: 'No records to display',
+        autowidth: true,
+        multiselect: false
+    });
+
     LoadSaleReport("Jun 2016");
 
     LoadGrids();
