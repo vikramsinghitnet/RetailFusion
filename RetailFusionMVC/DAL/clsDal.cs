@@ -823,7 +823,7 @@ namespace RetailFusionMVC.Models
                 con.Open();
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = " select * from dbo.T_Party where StoreId=" + StoreId + " order by 2";
+                cmd.CommandText = " select * from dbo.T_Party where StoreId=" + StoreId + " and isactive=1 order by 2";
                 SqlDataReader dr;
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
